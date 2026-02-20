@@ -1,0 +1,38 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: "Dr. Ahmed Rahman",
+    role: "Research Supervisor",
+    company: "Tech Research Lab",
+    message: "Towsif demonstrated exceptional skills in AI/ML and data analytics during his internship. His ability to quickly grasp complex concepts and implement data-driven solutions is remarkable. A talented developer with a bright future ahead.",
+    avatar: "/testimonials/ahmed.jpg",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Sarah Chen",
+    role: "Project Manager",
+    company: "Freelance Client",
+    message: "Working with Towsif was excellent. He delivered a high-quality web application with beautiful UI and robust functionality. His expertise in React and Firebase helped us launch our product ahead of schedule. Highly recommended!",
+    avatar: "/testimonials/sarah.jpg",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Rajesh Kumar",
+    role: "Senior Developer",
+    company: "Software Studio",
+    message: "Towsif is a quick learner and has a strong grasp of both frontend and backend technologies. His work on our client projects was always clean, well-documented, and delivered on time. Great team player!",
+    avatar: "/testimonials/rajesh.jpg",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Emily Johnson",
+    role: "Data Analyst",
+    company: "Analytics Firm",
+    message: "The data visualization dashboard Towsif created for us exceeded our expectations. His understanding of data analytics and ability to present complex data in an intuitive way is impressive. Professional and skilled developer.",
+    avatar: "/testimonials/emily.jpg",
+    rating: 5,
+  },
+];

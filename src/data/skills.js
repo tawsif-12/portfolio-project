@@ -1,0 +1,42 @@
+export const skills = {
+  programmingLanguages: [
+    { name: "Python", level: "expert", icon: "FaPython" },
+    { name: "JavaScript", level: "expert", icon: "FaJs" },
+    { name: "TypeScript", level: "advanced", icon: "SiTypescript" },
+    { name: "C", level: "advanced", icon: "SiC" },
+    { name: "C++", level: "advanced", icon: "SiCplusplus" },
+    { name: "Java", level: "advanced", icon: "FaJava" },
+    { name: "Dart", level: "intermediate", icon: "SiDart" },
+    { name: "PHP", level: "intermediate", icon: "FaPhp" },
+  ],
+  aiDataScience: [
+    { name: "Prompt Engineering", level: "expert", icon: "SiOpenai" },
+    { name: "Data Analytics", level: "advanced", icon: "MdAnalytics" },
+    { name: "Data-Driven Solutions", level: "advanced", icon: "MdInsights" },
+    { name: "Machine Learning", level: "intermediate", icon: "SiTensorflow" },
+    { name: "Data Visualization", level: "advanced", icon: "MdBarChart" },
+    { name: "Power BI", level: "advanced", icon: "SiPowerbi" },
+  ],
+  database: [
+    { name: "Firebase Firestore", level: "advanced", icon: "SiFirebase" },
+    { name: "MongoDB", level: "advanced", icon: "SiMongodb" },
+    { name: "MySQL", level: "advanced", icon: "SiMysql" },
+    { name: "MSSQL", level: "intermediate", icon: "SiMicrosoftsqlserver" },
+  ],
+  tools: [
+    { name: "Git", level: "expert", icon: "FaGit" },
+    { name: "GitHub", level: "expert", icon: "FaGithub" },
+    { name: "GitHub Copilot", level: "expert", icon: "SiGithubcopilot" },
+    { name: "VS Code", level: "expert", icon: "VscCode" },
+    { name: "Vercel", level: "advanced", icon: "SiVercel" },
+    { name: "Netlify", level: "advanced", icon: "SiNetlify" },
+    { name: "Figma", level: "advanced", icon: "FaFigma" },
+  ],
+  frontend: [
+    { name: "React", level: "advanced", icon: "FaReact" },
+    { name: "HTML5", level: "expert", icon: "FaHtml5" },
+    { name: "CSS3", level: "expert", icon: "FaCss3Alt" },
+    { name: "Tailwind CSS", level: "advanced", icon: "SiTailwindcss" },
+    { name: "Flutter", level: "intermediate", icon: "SiFlutter" },
+  ],
+};
