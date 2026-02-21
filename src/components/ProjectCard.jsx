@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 function ProjectCard({ project }) {
@@ -30,11 +29,9 @@ function ProjectCard({ project }) {
       {/* Project Info */}
       <div className="flex-1">
         <div className="flex items-start justify-between mb-2">
-          <Link to={`/projects/${project.id}`}>
-            <h3 className="text-xl font-semibold hover:text-coral transition-colors text-theme-primary">
-              {project.title}
-            </h3>
-          </Link>
+          <h3 className="text-xl font-semibold text-theme-primary">
+            {project.title}
+          </h3>
         </div>
 
         <p className="text-sm mb-4 line-clamp-2 text-theme-secondary">
@@ -80,12 +77,6 @@ function ProjectCard({ project }) {
               <FaExternalLinkAlt className="mr-1" /> Live Demo
             </a>
           )}
-          <Link
-            to={`/projects/${project.id}`}
-            className="flex items-center text-sm text-coral hover:text-coral-light transition-colors ml-auto"
-          >
-            View Details →
-          </Link>
         </div>
       </div>
     </div>

@@ -1,40 +1,48 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { profile } from '../data/profile';
 
 function Navbar({ isDarkMode, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/resume', label: 'Resume' },
-    { path: '/contact', label: 'Contact' },
+    { path: 'home', label: 'Home' },
+    { path: 'about', label: 'About' },
+    { path: 'skills', label: 'Skills' },
+    { path: 'projects', label: 'Projects' },
+    { path: 'resume', label: 'Resume' },
+    { path: 'contact', label: 'Contact' },
   ];
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav className="bg-theme-primary border-b border-theme sticky top-0 z-50" style={{ transition: 'background-color 0.3s ease' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <button onClick={() => scrollToSection('home')} className="flex items-center">
             <span className="text-2xl font-bold text-coral">{profile.name.split(' ').map(n => n[0]).join('')}</span>
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <NavLink
+              <button
                 key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  isActive ? 'nav-link text-coral' : 'nav-link'
-                }
+                onClick={() => scrollToSection(link.path)}
+                className={activeSection === link.path ? 'nav-link text-coral' : 'nav-link'}
               >
                 {link.label}
-              </NavLink>
+              </button>
             ))}
             
             {/* Theme Toggle Button */}
@@ -84,20 +92,17 @@ function Navbar({ isDarkMode, toggleTheme }) {
         <div className="md:hidden bg-theme-primary border-t border-theme">
           <div className="px-4 py-3 space-y-3">
             {navLinks.map((link) => (
-              <NavLink
+              <button
                 key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-2 rounded-lg text-base font-medium transition-colors duration-200 ${
-                    isActive
-                      ? 'bg-coral text-white'
-                      : 'hover:bg-theme-card text-theme-primary'
-                  }`
-                }
+                onClick={() => scrollToSection(link.path)}
+                className={`block w-full text-left px-3 py-2 rounded-lg text-base font-medium transition-colors duration-200 ${
+                  activeSection === link.path
+                    ? 'bg-coral text-white'
+                    : 'hover:bg-theme-card text-theme-primary'
+                }`}
               >
                 {link.label}
-              </NavLink>
+              </button>
             ))}
           </div>
         </div>
