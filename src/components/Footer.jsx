@@ -45,9 +45,21 @@ function Footer() {
 
         {/* Additional Links */}
         <div className="mt-6 pt-6 border-t border-theme text-center">
-          <p className="text-xs text-theme-muted">
+          <p className="text-xs text-theme-muted mb-3">
             Built with React, Vite, and Tailwind CSS
           </p>
+          
+          {/* Copyright License */}
+          <div className="text-xs text-theme-muted max-w-3xl mx-auto">
+            <p className="mb-2">
+              © {currentYear} {profile.name}. All rights reserved.
+            </p>
+            <p className="text-xs">
+              This website and its content are protected by copyright law. 
+              Unauthorized reproduction or distribution of this content, or any portion of it, 
+              may result in civil and criminal penalties.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
