@@ -1,15 +1,20 @@
-import { FaArrowRight, FaGithub, FaLinkedin, FaGraduationCap, FaEnvelope, FaMapMarkerAlt, FaTwitter, FaAward, FaDownload } from 'react-icons/fa';
+﻿import { FaArrowRight, FaGithub, FaLinkedin, FaGraduationCap, FaEnvelope, FaMapMarkerAlt, FaAward, FaDownload, FaUsers, FaHandsHelping, FaProjectDiagram, FaCode, FaChalkboardTeacher, FaTrophy, FaLightbulb, FaUserTie, FaHandshake, FaComments, FaChartLine, FaClock } from 'react-icons/fa';
 import { profile } from '../data/profile';
 import { projects } from '../data/projects';
 import { skills } from '../data/skills';
 import { resume } from '../data/resume';
+import { leadership, activities } from '../data/leadership';
 import ProjectCard from '../components/ProjectCard';
 import SectionHeader from '../components/SectionHeader';
 import SkillBadge from '../components/SkillBadge';
+import StepArrow from '../components/StepArrow';
 import { useState } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import ScrollAnimatedCard from '../components/ScrollAnimatedCard';
 
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [leadershipRef, isLeadershipVisible] = useScrollAnimation({ threshold: 0.1, once: true });
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
   const topSkills = [
     ...skills.programmingLanguages.slice(0, 4),
@@ -47,23 +52,27 @@ function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center w-full">
             {/* Text Left */}
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-theme-primary">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-theme-primary animate-fade-in-scale">
                 Hi, I'm{' '}
-                <span className="text-coral">{profile.name}</span>
+                <span className="text-coral animate-text-pulse">{profile.name}</span>
               </h1>
               <div className="section-divider"></div>
-              <p className="text-2xl mb-6 text-theme-primary">
+              <p className="text-2xl mb-6 text-theme-primary animate-fade-in-up delay-100">
                 {profile.tagline}
               </p>
-              <p className="text-lg mb-8 max-w-xl text-theme-secondary font-medium">
+              <p className="text-lg mb-8 max-w-xl text-theme-secondary font-medium animate-fade-in-up delay-200">
                 CSE student passionate about AI, ML, and Data Science. I build data-driven applications, explore new technologies, and aim to create intelligent solutions with real-world impact.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 animate-fade-in-up delay-300">
                 <button onClick={() => scrollToSection('projects')} className="btn-primary">
                   View My Work <FaArrowRight className="inline ml-2" />
                 </button>
                 <button onClick={() => scrollToSection('contact')} className="btn-secondary">
                   Get In Touch
+                </button>
+                <button onClick={handleDownload} className="btn-outline">
+                  <FaDownload className="inline mr-2" />
+                  Download Resume
                 </button>
               </div>
               <div className="flex space-x-4 mt-8">
@@ -107,7 +116,7 @@ function Home() {
               </div>
               
               {/* Circular coral ring background with shadow */}
-              <div className="relative flex items-center justify-center" style={{ zIndex: '1' }}>
+              <div className="relative flex items-center justify-center animate-float" style={{ zIndex: '1' }}>
                 <div 
                   className="absolute rounded-full"
                   style={{
@@ -165,7 +174,7 @@ function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
+      <section id="about" className="section-container bg-theme-card">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <SectionHeader
             title="About Me"
@@ -177,29 +186,31 @@ function Home() {
 
         {/* Education */}
         <div className="max-w-4xl mx-auto mt-16">
-          <h3 className="text-3xl font-bold mb-8 text-theme-primary text-center">Education</h3>
-          {profile.education.map((edu) => (
-            <div key={edu.id} className="card mb-6">
-              <div className="flex items-start justify-between flex-wrap gap-2">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-1 text-theme-primary">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-lg text-coral font-medium mb-2">
-                    {edu.school}
-                  </p>
-                  <p className="text-theme-secondary">
-                    {edu.description}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="flex items-center text-theme-secondary">
-                    <FaGraduationCap className="mr-2" />
-                    {edu.period}
-                  </p>
+          <h3 className="text-3xl font-bold mb-8 text-theme-primary text-center animate-fade-in-scale">Education</h3>
+          {profile.education.map((edu, index) => (
+            <ScrollAnimatedCard key={edu.id} animationType="scale" delay={index * 100}>
+              <div className="card mb-6 hover:shadow-xl transition-all duration-500 hover:scale-105">
+                <div className="flex items-start justify-between flex-wrap gap-2">
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-1 text-theme-primary">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-lg text-coral font-medium mb-2">
+                      {edu.school}
+                    </p>
+                    <p className="text-theme-secondary">
+                      {edu.description}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="flex items-center text-theme-secondary">
+                      <FaGraduationCap className="mr-2" />
+                      {edu.period}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimatedCard>
           ))}
         </div>
       </section>
@@ -288,6 +299,41 @@ function Home() {
         </div>
       </section>
 
+      {/* Leadership & Activities Section */}
+      <section id="activities" className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
+        <SectionHeader
+          title="Activities & Leadership"
+          subtitle="My involvement in leadership roles and extracurricular activities"
+        />
+        
+        {/* Leadership Process - Arrow Steps */}
+        <div ref={leadershipRef}>
+          <div className="max-w-4xl mx-auto">
+            {leadership.map((item, index) => {
+              const colors = ["#E8472A", "#9B59B6", "#2ABFBF", "#F5A623"];
+              const number = String(index + 1).padStart(2, '0');
+              
+              return (
+                <StepArrow
+                  key={item.id}
+                  number={number}
+                  title={item.role}
+                  subtitle={item.organization}
+                  description={item.description}
+                  period={item.period}
+                  achievements={item.achievements}
+                  color={colors[index % colors.length]}
+                  icon={item.icon}
+                  offset={index * 40}
+                  delay={index * 0.2}
+                  isVisible={isLeadershipVisible}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader
@@ -339,53 +385,39 @@ function Home() {
         )}
       </section>
 
-      {/* Resume/Certifications Section */}
-      <section id="resume" className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
+      {/* Achievements Section */}
+      <section id="achievements" className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader 
-          title="Certifications & Resume" 
-          subtitle="Professional credentials and downloadable resume"
+          title="Certifications & Achievements" 
+          subtitle="Professional credentials and accomplishments"
         />
         
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-12">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {resume.certifications.map((cert) => (
-            <div key={cert.id} className="card">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
-                  <FaAward className="w-6 h-6" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold mb-1 text-theme-primary">
-                    {cert.name}
-                  </h3>
-                  <p className="text-coral text-sm mb-1">{cert.issuer}</p>
-                  <p className="text-sm text-theme-secondary">
-                    Issued: {cert.date}
-                  </p>
-                  {cert.credentialId && (
-                    <p className="text-xs mt-2 text-theme-muted">
-                      ID: {cert.credentialId}
+            <ScrollAnimatedCard key={cert.id} animationType="scale" delay={0.1}>
+              <div className="card">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
+                    <FaAward className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1 text-theme-primary">
+                      {cert.name}
+                    </h3>
+                    <p className="text-coral text-sm mb-1">{cert.issuer}</p>
+                    <p className="text-sm text-theme-secondary">
+                      Issued: {cert.date}
                     </p>
-                  )}
+                    {cert.credentialId && (
+                      <p className="text-xs mt-2 text-theme-muted">
+                        ID: {cert.credentialId}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimatedCard>
           ))}
-        </div>
-
-        {/* Download Resume */}
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4 text-theme-primary">Download My Resume</h2>
-          <div className="section-divider mx-auto"></div>
-          <p className="text-xl mb-8 text-theme-secondary">
-            Get a PDF copy of my complete resume for your records
-          </p>
-          <button
-            onClick={handleDownload}
-            className="btn-primary"
-          >
-            <FaDownload className="mr-2 inline" />
-            Download PDF
-          </button>
         </div>
       </section>
 
@@ -401,7 +433,10 @@ function Home() {
         <div className="max-w-2xl mx-auto">
           <div className="space-y-6">
             {/* Email */}
-            <div className="card flex items-start space-x-4">
+            <a
+              href={`mailto:${profile.email}`}
+              className="card flex items-start space-x-4 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
               <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
                 <FaEnvelope className="w-6 h-6" />
               </div>
@@ -409,14 +444,51 @@ function Home() {
                 <h3 className="font-semibold mb-1 text-theme-primary">
                   Email
                 </h3>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="text-coral hover:underline"
-                >
+                <p className="text-coral hover:underline">
                   {profile.email}
-                </a>
+                </p>
               </div>
-            </div>
+            </a>
+
+            {/* GitHub */}
+            <a
+              href={profile.socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card flex items-start space-x-4 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
+              <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
+                <FaGithub className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-theme-primary">
+                  GitHub
+                </h3>
+                <p className="text-coral hover:underline">
+                  View my repositories
+                </p>
+              </div>
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href={profile.socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card flex items-start space-x-4 hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
+              <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
+                <FaLinkedin className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-theme-primary">
+                  LinkedIn
+                </h3>
+                <p className="text-coral hover:underline">
+                  Connect with me
+                </p>
+              </div>
+            </a>
 
             {/* Location */}
             <div className="card flex items-start space-x-4">
@@ -432,68 +504,7 @@ function Home() {
                 </p>
               </div>
             </div>
-
-            {/* Social Links */}
-            <div className="card">
-              <h3 className="font-semibold mb-4 text-theme-primary">
-                Connect With Me
-              </h3>
-              <div className="flex space-x-4 justify-center">
-                <a
-                  href={profile.socialLinks.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-theme-card-alt text-theme-primary rounded-lg flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
-                >
-                  <FaGithub className="w-6 h-6" />
-                </a>
-                <a
-                  href={profile.socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-theme-card-alt text-theme-primary rounded-lg flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
-                >
-                  <FaLinkedin className="w-6 h-6" />
-                </a>
-                <a
-                  href={profile.socialLinks.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-theme-card-alt text-theme-primary rounded-lg flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
-                >
-                  <FaTwitter className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
-
-            {/* Availability */}
-            <div className="card border-2 border-coral bg-theme-card-alt">
-              <h3 className="font-semibold mb-2 text-theme-primary">
-                📅 Availability
-              </h3>
-              <p className="text-theme-secondary">
-                Currently available for freelance projects and full-time
-                opportunities. Response time: within 24 hours.
-              </p>
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-theme-primary">
-            Let's Work Together
-          </h2>
-          <div className="section-divider mx-auto"></div>
-          <p className="text-xl mb-8 text-theme-secondary">
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision.
-          </p>
-          <button onClick={() => scrollToSection('contact')} className="btn-primary">
-            Start a Conversation
-          </button>
         </div>
       </section>
     </div>

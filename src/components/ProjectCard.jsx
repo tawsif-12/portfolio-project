@@ -1,8 +1,16 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function ProjectCard({ project }) {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <div className="card group hover:scale-105 transform transition-all duration-300">
+    <div 
+      ref={ref}
+      className={`card group hover:scale-105 hover:shadow-2xl transform transition-all duration-500 ${
+        isVisible ? 'scroll-scale visible' : 'scroll-scale'
+      }`}
+    >
       {/* Project Image */}
       <div className="relative overflow-hidden rounded-lg mb-4 bg-theme-card-alt h-48">
         {project.screenshots && project.screenshots[0] ? (

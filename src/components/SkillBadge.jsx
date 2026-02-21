@@ -2,6 +2,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as SiIcons from 'react-icons/si';
 import * as MdIcons from 'react-icons/md';
 import { VscCode } from 'react-icons/vsc';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function SkillBadge({ skill, category }) {
   // Map category to color
@@ -36,10 +37,12 @@ function SkillBadge({ skill, category }) {
   };
 
   const dots = levelDots[skill.level] || 3;
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <div
-      className="flex items-center justify-between px-4 py-3 rounded-lg border-2 bg-theme-card-alt text-theme-primary border-theme transition-all duration-200 hover:scale-105 hover:border-coral"
+      ref={ref}
+      className={`flex items-center justify-between px-4 py-3 rounded-lg border-2 bg-theme-card-alt text-theme-primary border-theme transition-all duration-300 hover:scale-110 hover:border-coral hover:shadow-lg ${isVisible ? 'scroll-fade-in visible' : 'scroll-fade-in'}`}
     >
       <div className="flex items-center space-x-3">
         {Icon && <span className="flex-shrink-0 text-coral">{Icon}</span>}

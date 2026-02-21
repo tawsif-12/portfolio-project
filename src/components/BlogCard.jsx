@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FaClock, FaCalendar } from 'react-icons/fa';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function BlogCard({ post }) {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <div className="card group hover:scale-105 transform transition-all duration-300">
+    <div ref={ref} className={`card group hover:scale-105 hover:shadow-xl transform transition-all duration-500 ${isVisible ? 'scroll-fade-in visible' : 'scroll-fade-in'}`}>
       <Link to={`/blog/${post.slug}`}>
         <div className="mb-4">
           {post.featured && (

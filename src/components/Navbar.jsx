@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { profile } from '../data/profile';
 
@@ -10,10 +10,32 @@ function Navbar({ isDarkMode, toggleTheme }) {
     { path: 'home', label: 'Home' },
     { path: 'about', label: 'About' },
     { path: 'skills', label: 'Skills' },
+    { path: 'activities', label: 'Activities' },
     { path: 'projects', label: 'Projects' },
-    { path: 'resume', label: 'Resume' },
+    { path: 'achievements', label: 'Achievements' },
     { path: 'contact', label: 'Contact' },
   ];
+
+  // Scroll spy effect - highlight active section in navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => document.getElementById(link.path));
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navLinks[i].path);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once on mount
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);

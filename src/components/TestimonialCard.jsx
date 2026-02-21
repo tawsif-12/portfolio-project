@@ -1,8 +1,11 @@
 import { FaStar, FaQuoteLeft } from 'react-icons/fa';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function TestimonialCard({ testimonial }) {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <div className="card relative">
+    <div ref={ref} className={`card relative hover:shadow-xl transition-all duration-500 ${isVisible ? 'scroll-scale visible' : 'scroll-scale'}`}>
       {/* Quote Icon */}
       <div className="absolute top-4 right-4 text-primary opacity-20">
         <FaQuoteLeft className="w-12 h-12" />

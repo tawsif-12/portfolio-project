@@ -15,11 +15,11 @@ function Contact() {
       <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary animate-fade-in-scale">
               Get In Touch
             </h1>
             <div className="section-divider mx-auto"></div>
-            <p className="text-xl text-theme-secondary">
+            <p className="text-xl text-theme-secondary animate-fade-in-up delay-100">
               Have a project in mind? Let's discuss how I can help bring your
               ideas to life
             </p>
@@ -38,7 +38,7 @@ function Contact() {
 
           <div className="space-y-6">
             {/* Email */}
-            <div className="card flex items-start space-x-4">
+            <div className="card flex items-start space-x-4 animate-fade-in-up delay-100">
               <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
                 <FaEnvelope className="w-6 h-6" />
               </div>

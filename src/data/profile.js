@@ -3,11 +3,11 @@ export const profile = {
   tagline: "Computer Science Student | AI, ML & Data Science Enthusiast",
   bio: "Hello! I'm a Computer Science student driven by curiosity and a passion for AI, Machine Learning, and Data Science. I love working with data, discovering patterns, and turning ideas into real-world applications. From building Power BI dashboards to developing modern web apps, I enjoy every step of the problem-solving process. My goal is to become a skilled data and AI professional who builds intelligent systems that create real impact. I'm constantly learning new technologies, improving my development skills, and exploring how data can be used to make better decisions.",
   avatar: "/avatar.png", // Add your avatar image to public folder
-  email: "towsif@example.com",
-  location: "Bangladesh",
+  email: "tawsifmannan1212@gmail.com",
+  location: "Dhaka, Bangladesh",
   socialLinks: {
-    github: "https://github.com/towsif",
-    linkedin: "https://linkedin.com/in/md-towsif-bin-mannan",
+    github: "https://github.com/tawsif-12",
+    linkedin: "https://www.linkedin.com/in/md-towsif-bin-mannan-976a651bb/",
     twitter: "https://twitter.com/towsif",
     medium: "https://medium.com/@towsif",
   },
