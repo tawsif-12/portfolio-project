@@ -12,13 +12,14 @@ function Contact() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary">
               Get In Touch
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300">
+            <div className="section-divider mx-auto"></div>
+            <p className="text-xl text-theme-secondary">
               Have a project in mind? Let's discuss how I can help bring your
               ideas to life
             </p>
@@ -27,7 +28,7 @@ function Contact() {
       </section>
 
       {/* Contact Info */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="max-w-2xl mx-auto">
           <SectionHeader
             title="Contact Information"
@@ -38,16 +39,16 @@ function Contact() {
           <div className="space-y-6">
             {/* Email */}
             <div className="card flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
                 <FaEnvelope className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                <h3 className="font-semibold mb-1 text-theme-primary">
                   Email
                 </h3>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-primary hover:underline"
+                  className="text-coral hover:underline"
                 >
                   {profile.email}
                 </a>
@@ -56,14 +57,14 @@ function Contact() {
 
             {/* Location */}
             <div className="card flex items-start space-x-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
                 <FaMapMarkerAlt className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                <h3 className="font-semibold mb-1 text-theme-primary">
                   Location
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-theme-secondary">
                   {profile.location}
                 </p>
               </div>
@@ -71,7 +72,7 @@ function Contact() {
 
             {/* Social Links */}
             <div className="card">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="font-semibold mb-4 text-theme-primary">
                 Connect With Me
               </h3>
               <div className="flex space-x-4 justify-center">
@@ -79,7 +80,7 @@ function Contact() {
                   href={profile.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                  className="w-12 h-12 bg-theme-card-alt text-theme-primary rounded-lg flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
                 >
                   <FaGithub className="w-6 h-6" />
                 </a>
@@ -87,7 +88,7 @@ function Contact() {
                   href={profile.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                  className="w-12 h-12 bg-theme-card-alt text-theme-primary rounded-lg flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
                 >
                   <FaLinkedin className="w-6 h-6" />
                 </a>
@@ -95,7 +96,7 @@ function Contact() {
                   href={profile.socialLinks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                  className="w-12 h-12 bg-theme-card-alt text-theme-primary rounded-lg flex items-center justify-center hover:bg-coral hover:text-white transition-colors"
                 >
                   <FaTwitter className="w-6 h-6" />
                 </a>
@@ -103,11 +104,11 @@ function Contact() {
             </div>
 
             {/* Availability */}
-            <div className="card bg-blue-50 dark:bg-blue-900 border-2 border-primary">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+            <div className="card border-2 border-coral bg-theme-card-alt">
+              <h3 className="font-semibold mb-2 text-theme-primary">
                 📅 Availability
               </h3>
-              <p className="text-gray-700 dark:text-gray-300">
+              <p className="text-theme-secondary">
                 Currently available for freelance projects and full-time
                 opportunities. Response time: within 24 hours.
               </p>

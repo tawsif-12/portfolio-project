@@ -19,13 +19,14 @@ function Resume() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary">
               Resume
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+            <div className="section-divider mx-auto"></div>
+            <p className="text-xl mb-8 text-theme-secondary">
               {resume.summary}
             </p>
             <button onClick={handleDownload} className="btn-primary">
@@ -37,7 +38,7 @@ function Resume() {
       </section>
 
       {/* Experience */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader
           title="Professional Experience"
           subtitle="My career journey and key accomplishments"
@@ -46,25 +47,25 @@ function Resume() {
           {resume.experience.map((exp, index) => (
             <div
               key={exp.id}
-              className="relative pl-8 pb-12 border-l-2 border-primary last:pb-0"
+              className="relative pl-8 pb-12 border-l-2 border-coral last:pb-0"
             >
-              <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-900" />
+              <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-coral" style={{ borderWidth: '4px', borderColor: 'var(--card-bg)', borderStyle: 'solid' }} />
 
               <div className="card">
                 <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-2xl font-semibold text-theme-primary">
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-primary font-medium">
+                    <p className="text-lg text-coral font-medium">
                       {exp.company}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-theme-muted">
                       {exp.location}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                    <p className="flex items-center text-theme-secondary">
                       <FaBriefcase className="mr-2" />
                       {exp.period}
                     </p>
@@ -75,9 +76,9 @@ function Resume() {
                   {exp.responsibilities.map((resp, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start text-gray-700 dark:text-gray-300"
+                      className="flex items-start text-theme-secondary"
                     >
-                      <span className="text-primary mr-2 mt-1">▸</span>
+                      <span className="text-coral mr-2 mt-1">▸</span>
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -89,30 +90,30 @@ function Resume() {
       </section>
 
       {/* Education */}
-      <section className="section-container bg-gray-50 dark:bg-gray-800">
+      <section className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader title="Education" />
         <div className="max-w-4xl mx-auto space-y-6">
           {resume.education.map((edu) => (
             <div key={edu.id} className="card">
               <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-2xl font-semibold mb-1 text-theme-primary">
                     {edu.degree}
                   </h3>
-                  <p className="text-lg text-primary font-medium mb-1">
+                  <p className="text-lg text-coral font-medium mb-1">
                     {edu.school}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-theme-muted">
                     {edu.location}
                   </p>
                   {edu.gpa && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-sm mt-1 text-theme-secondary">
                       GPA: {edu.gpa}
                     </p>
                   )}
                 </div>
                 <div className="text-right">
-                  <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                  <p className="flex items-center text-theme-secondary">
                     <FaGraduationCap className="mr-2" />
                     {edu.period}
                   </p>
@@ -121,16 +122,16 @@ function Resume() {
 
               {edu.achievements && (
                 <div className="mt-4">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h4 className="font-semibold mb-2 text-theme-primary">
                     Achievements:
                   </h4>
                   <ul className="space-y-1">
                     {edu.achievements.map((achievement, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start text-gray-700 dark:text-gray-300"
+                        className="flex items-start text-theme-secondary"
                       >
-                        <span className="text-primary mr-2">▸</span>
+                        <span className="text-coral mr-2">▸</span>
                         <span>{achievement}</span>
                       </li>
                     ))}
@@ -143,25 +144,25 @@ function Resume() {
       </section>
 
       {/* Certifications */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader title="Certifications" subtitle="Professional credentials and certifications" />
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {resume.certifications.map((cert) => (
             <div key={cert.id} className="card">
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
                   <FaAward className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-lg font-semibold mb-1 text-theme-primary">
                     {cert.name}
                   </h3>
-                  <p className="text-primary text-sm mb-1">{cert.issuer}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-coral text-sm mb-1">{cert.issuer}</p>
+                  <p className="text-sm text-theme-secondary">
                     Issued: {cert.date}
                   </p>
                   {cert.credentialId && (
-                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+                    <p className="text-xs mt-2 text-theme-muted">
                       ID: {cert.credentialId}
                     </p>
                   )}
@@ -173,22 +174,22 @@ function Resume() {
       </section>
 
       {/* Skills Summary */}
-      <section className="section-container bg-gray-50 dark:bg-gray-800">
+      <section className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader title="Skills Summary" />
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Technical Skills */}
           <div className="card">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-xl font-semibold mb-4 text-theme-primary">
               Technical Skills
             </h3>
             <div className="space-y-3">
               {resume.skills.technical.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center px-3 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg"
+                  className="flex items-center px-3 py-2 rounded-lg bg-theme-card-alt"
                 >
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-300">
+                  <span className="w-2 h-2 bg-coral rounded-full mr-3 flex-shrink-0" />
+                  <span className="text-theme-secondary">
                     {skill}
                   </span>
                 </div>
@@ -198,17 +199,17 @@ function Resume() {
 
           {/* Soft Skills */}
           <div className="card">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-xl font-semibold mb-4 text-theme-primary">
               Soft Skills
             </h3>
             <div className="space-y-3">
               {resume.skills.soft.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center px-3 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg"
+                  className="flex items-center px-3 py-2 rounded-lg bg-theme-card-alt"
                 >
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-300">
+                  <span className="w-2 h-2 bg-coral rounded-full mr-3 flex-shrink-0" />
+                  <span className="text-theme-secondary">
                     {skill}
                   </span>
                 </div>
@@ -219,15 +220,16 @@ function Resume() {
       </section>
 
       {/* Download CTA */}
-      <section className="section-container bg-primary text-white">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Download My Resume</h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <h2 className="text-4xl font-bold mb-4 text-theme-primary">Download My Resume</h2>
+          <div className="section-divider mx-auto"></div>
+          <p className="text-xl mb-8 text-theme-secondary">
             Get a PDF copy of my complete resume for your records
           </p>
           <button
             onClick={handleDownload}
-            className="bg-white text-primary font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center"
+            className="btn-primary"
           >
             <FaDownload className="mr-2" />
             Download PDF

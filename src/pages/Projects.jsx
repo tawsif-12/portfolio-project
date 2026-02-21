@@ -22,13 +22,14 @@ function Projects() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary">
               My Projects
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300">
+            <div className="section-divider mx-auto"></div>
+            <p className="text-xl text-theme-secondary">
               A collection of projects I've worked on, showcasing my skills and
               passion for development
             </p>
@@ -37,9 +38,9 @@ function Projects() {
       </section>
 
       {/* Filters */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold mb-4 text-theme-primary">
             Filter by Category
           </h3>
           <div className="flex flex-wrap gap-3">
@@ -52,8 +53,8 @@ function Projects() {
                 }}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === category
-                    ? 'bg-primary text-white'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    ? 'bg-coral text-white'
+                    : 'tech-badge'
                 }`}
               >
                 {category}
@@ -63,13 +64,13 @@ function Projects() {
         </div>
 
         {selectedTag && (
-          <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg flex items-center justify-between">
-            <p className="text-gray-700 dark:text-gray-300">
-              Filtered by tag: <strong>{selectedTag}</strong>
+          <div className="mb-8 p-4 bg-theme-card-alt rounded-lg flex items-center justify-between">
+            <p className="text-theme-secondary">
+              Filtered by tag: <strong className="text-theme-primary">{selectedTag}</strong>
             </p>
             <button
               onClick={() => setSelectedTag(null)}
-              className="text-primary hover:text-primary-dark font-medium"
+              className="text-coral hover:text-coral-light font-medium"
             >
               Clear
             </button>
@@ -85,7 +86,7 @@ function Projects() {
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-xl text-theme-secondary">
               No projects found with the selected filters.
             </p>
             <button
@@ -102,7 +103,7 @@ function Projects() {
 
         {/* Popular Tags */}
         <div className="mt-16">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold mb-4 text-theme-primary">
             Popular Technologies
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -115,8 +116,8 @@ function Projects() {
                 }}
                 className={`px-3 py-1 rounded-full text-sm transition-colors ${
                   selectedTag === tag
-                    ? 'bg-primary text-white'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    ? 'bg-coral text-white'
+                    : 'tech-badge'
                 }`}
               >
                 {tag}

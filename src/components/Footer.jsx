@@ -12,7 +12,7 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+    <footer className="bg-theme-card border-t border-theme" style={{ transition: 'background-color 0.3s ease' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Social Links */}
@@ -25,7 +25,7 @@ function Footer() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200"
+                  className="nav-link"
                   aria-label={platform}
                 >
                   <Icon className="w-6 h-6" />
@@ -36,16 +36,16 @@ function Footer() {
 
           {/* Copyright */}
           <div className="text-center md:text-right">
-            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-center justify-center md:justify-end">
+            <p className="text-sm flex items-center justify-center md:justify-end text-theme-secondary">
               © {currentYear} {profile.name}. Made with{' '}
-              <FaHeart className="mx-1 text-red-500" /> using React
+              <FaHeart className="mx-1 text-coral" /> using React
             </p>
           </div>
         </div>
 
         {/* Additional Links */}
-        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
-          <p className="text-gray-500 dark:text-gray-400 text-xs">
+        <div className="mt-6 pt-6 border-t border-theme text-center">
+          <p className="text-xs text-theme-muted">
             Built with React, Vite, and Tailwind CSS
           </p>
         </div>

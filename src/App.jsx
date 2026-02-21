@@ -10,28 +10,30 @@ import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved ? JSON.parse(saved) : false;
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved ? saved === 'dark' : true; // default to dark
   });
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark-theme');
+      document.documentElement.classList.remove('light-theme');
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light-theme');
+      document.documentElement.classList.remove('dark-theme');
     }
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-  }, [darkMode]);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <div className="min-h-screen flex flex-col bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
+        <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

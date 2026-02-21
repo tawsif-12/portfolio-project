@@ -17,18 +17,20 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-        <div className="section-container min-h-[80vh] flex items-center">
+      <section className="bg-theme-primary relative overflow-hidden" style={{ transition: 'background-color 0.3s ease' }}>
+        <div className="section-container min-h-[80vh] flex items-center relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+            {/* Text Left */}
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-theme-primary">
                 Hi, I'm{' '}
-                <span className="text-primary">{profile.name}</span>
+                <span className="text-coral">{profile.name}</span>
               </h1>
-              <p className="text-2xl text-gray-700 dark:text-gray-300 mb-6">
+              <div className="section-divider"></div>
+              <p className="text-2xl mb-6 text-theme-primary">
                 {profile.tagline}
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl">
+              <p className="text-base mb-8 max-w-xl text-theme-secondary">
                 {profile.bio}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -44,7 +46,7 @@ function Home() {
                   href={profile.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  className="nav-link"
                 >
                   <FaGithub className="w-8 h-8" />
                 </a>
@@ -52,33 +54,85 @@ function Home() {
                   href={profile.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  className="nav-link"
                 >
                   <FaLinkedin className="w-8 h-8" />
                 </a>
               </div>
             </div>
-            <div className="hidden md:block">
-              <div className="relative">
-                <div className="w-full h-96 bg-gradient-to-br from-primary to-blue-600 rounded-lg shadow-2xl flex items-center justify-center">
-                  {profile.avatar ? (
-                    <img
-                      src={profile.avatar}
-                      alt={profile.name}
-                      className="w-full h-full object-cover rounded-lg"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                  ) : (
-                    <span className="text-white text-6xl font-bold">
+            
+            {/* Image Right with Decorative Elements */}
+            <div className="flex justify-center md:justify-end relative">
+              {/* Left angle bracket decoration */}
+              <div 
+                className="absolute font-bold select-none pointer-events-none"
+                style={{
+                  color: '#e8533a',
+                  fontSize: '12rem',
+                  lineHeight: '1',
+                  left: '-8rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  opacity: '0.3',
+                  fontWeight: '300',
+                  zIndex: '0'
+                }}
+              >
+                &lt;
+              </div>
+              
+              {/* Circular coral ring background with shadow */}
+              <div className="relative flex items-center justify-center" style={{ zIndex: '1' }}>
+                <div 
+                  className="absolute rounded-full"
+                  style={{
+                    width: '400px',
+                    height: '400px',
+                    border: '35px solid #e8533a',
+                    opacity: '0.8',
+                    boxShadow: '0 0 60px rgba(232, 83, 58, 0.5), 0 0 100px rgba(232, 83, 58, 0.3), inset 0 0 30px rgba(232, 83, 58, 0.3)'
+                  }}
+                ></div>
+                
+                {/* Profile Image - centered */}
+                {profile.avatar ? (
+                  <img
+                    src={profile.avatar}
+                    alt={profile.name}
+                    className="relative rounded-full object-cover object-center"
+                    style={{ 
+                      zIndex: '2',
+                      width: '330px',
+                      height: '330px'
+                    }}
+                  />
+                ) : (
+                  <div className="relative rounded-full bg-theme-card flex items-center justify-center" style={{ zIndex: '2', width: '330px', height: '330px' }}>
+                    <span className="text-6xl font-bold text-theme-primary">
                       {profile.name
                         .split(' ')
                         .map((n) => n[0])
                         .join('')}
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Right angle bracket decoration */}
+              <div 
+                className="absolute font-bold select-none pointer-events-none"
+                style={{
+                  color: '#e8533a',
+                  fontSize: '12rem',
+                  lineHeight: '1',
+                  right: '-8rem',
+                  bottom: '10%',
+                  opacity: '0.3',
+                  fontWeight: '300',
+                  zIndex: '0'
+                }}
+              >
+                &gt;
               </div>
             </div>
           </div>
@@ -86,7 +140,7 @@ function Home() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader
           title="Featured Projects"
           subtitle="Some of my recent work that I'm most proud of"
@@ -104,42 +158,39 @@ function Home() {
       </section>
 
       {/* Skills Snapshot */}
-      <section className="section-container bg-gray-50 dark:bg-gray-800">
+      <section className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader
           title="Skills & Technologies"
           subtitle="Technologies I work with on a regular basis"
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="scroll-container">
           {topSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="bg-white dark:bg-gray-700 rounded-lg p-4 text-center hover:shadow-lg transition-shadow"
-            >
-              <p className="font-medium text-gray-900 dark:text-white">
+            <div key={skill.name} className="tech-badge">
+              <p className="font-medium">
                 {skill.name}
               </p>
             </div>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link to="/about" className="btn-secondary">
+          <Link to="/about" className="btn-outline">
             View All Skills
           </Link>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-container bg-primary text-white">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4">Let's Work Together</h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <h2 className="text-4xl font-bold mb-4 text-theme-primary">
+            Let's Work Together
+          </h2>
+          <div className="section-divider mx-auto"></div>
+          <p className="text-xl mb-8 text-theme-secondary">
             I'm always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision.
           </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-white text-primary font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
-          >
+          <Link to="/contact" className="btn-primary">
             Start a Conversation
           </Link>
         </div>

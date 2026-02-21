@@ -8,13 +8,14 @@ function About() {
   return (
     <div>
       {/* About Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary">
               About Me
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+            <div className="section-divider mx-auto"></div>
+            <p className="text-xl leading-relaxed text-theme-secondary">
               {profile.bio}
             </p>
           </div>
@@ -22,7 +23,7 @@ function About() {
       </section>
 
       {/* Experience Timeline */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader
           title="Professional Experience"
           subtitle="My journey in the world of software development"
@@ -31,32 +32,32 @@ function About() {
           {profile.experience.map((exp, index) => (
             <div
               key={exp.id}
-              className="relative pl-8 pb-12 border-l-2 border-primary last:pb-0"
+              className="relative pl-8 pb-12 border-l-2 border-coral last:pb-0"
             >
               {/* Timeline Dot */}
-              <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-gray-900" />
+              <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-coral" style={{ borderWidth: '4px', borderColor: 'var(--card-bg)', borderStyle: 'solid' }} />
               
               <div className="card">
                 <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
                   <div>
-                    <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-2xl font-semibold text-theme-primary">
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-primary font-medium">
+                    <p className="text-lg text-coral font-medium">
                       {exp.company}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                    <p className="flex items-center text-theme-secondary">
                       <FaBriefcase className="mr-2" />
                       {exp.period}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-500">
+                    <p className="text-sm text-theme-muted">
                       {exp.location}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-theme-secondary">
                   {exp.description}
                 </p>
               </div>
@@ -66,25 +67,25 @@ function About() {
       </section>
 
       {/* Education */}
-      <section className="section-container bg-gray-50 dark:bg-gray-800">
+      <section className="section-container bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader title="Education" />
         <div className="max-w-4xl mx-auto">
           {profile.education.map((edu) => (
             <div key={edu.id} className="card">
               <div className="flex items-start justify-between flex-wrap gap-2">
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-2xl font-semibold mb-1 text-theme-primary">
                     {edu.degree}
                   </h3>
-                  <p className="text-lg text-primary font-medium mb-2">
+                  <p className="text-lg text-coral font-medium mb-2">
                     {edu.school}
                   </p>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-theme-secondary">
                     {edu.description}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                  <p className="flex items-center text-theme-secondary">
                     <FaGraduationCap className="mr-2" />
                     {edu.period}
                   </p>
@@ -96,7 +97,7 @@ function About() {
       </section>
 
       {/* Skills */}
-      <section className="section-container bg-white dark:bg-gray-900">
+      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
         <SectionHeader
           title="Skills & Expertise"
           subtitle="Technologies and tools I work with"
@@ -104,7 +105,7 @@ function About() {
         
         {/* Programming Languages */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
             Programming Languages
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -120,7 +121,7 @@ function About() {
 
         {/* AI & Data Science */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
             AI & Data Science
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -136,7 +137,7 @@ function About() {
 
         {/* Database Skills */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
             Databases
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -152,7 +153,7 @@ function About() {
 
         {/* Tools & Platforms */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
             Tools & Platforms
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -164,7 +165,7 @@ function About() {
 
         {/* Frontend Development */}
         <div>
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
             Frontend Development
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

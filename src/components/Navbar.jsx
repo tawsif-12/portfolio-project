@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
+import { profile } from '../data/profile';
 
-function Navbar({ darkMode, toggleDarkMode }) {
+function Navbar({ isDarkMode, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -14,12 +15,12 @@ function Navbar({ darkMode, toggleDarkMode }) {
   ];
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-300">
+    <nav className="bg-theme-primary border-b border-theme sticky top-0 z-50" style={{ transition: 'background-color 0.3s ease' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary">JD</span>
+            <span className="text-2xl font-bold text-coral">{profile.name.split(' ').map(n => n[0]).join('')}</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -29,27 +30,23 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? 'text-primary'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary'
-                  }`
+                  isActive ? 'nav-link text-coral' : 'nav-link'
                 }
               >
                 {link.label}
               </NavLink>
             ))}
             
-            {/* Dark Mode Toggle */}
+            {/* Theme Toggle Button */}
             <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
-              aria-label="Toggle dark mode"
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-theme-card transition-colors"
+              aria-label="Toggle theme"
             >
-              {darkMode ? (
-                <HiSun className="w-5 h-5 text-yellow-500" />
+              {isDarkMode ? (
+                <HiMoon className="w-6 h-6 text-coral" />
               ) : (
-                <HiMoon className="w-5 h-5 text-gray-700" />
+                <HiSun className="w-6 h-6 text-coral" />
               )}
             </button>
           </div>
@@ -57,19 +54,19 @@ function Navbar({ darkMode, toggleDarkMode }) {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
             <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-              aria-label="Toggle dark mode"
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-theme-card transition-colors"
+              aria-label="Toggle theme"
             >
-              {darkMode ? (
-                <HiSun className="w-5 h-5 text-yellow-500" />
+              {isDarkMode ? (
+                <HiMoon className="w-5 h-5 text-coral" />
               ) : (
-                <HiMoon className="w-5 h-5 text-gray-700" />
+                <HiSun className="w-5 h-5 text-coral" />
               )}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="p-2 rounded-lg hover:bg-theme-card transition-colors text-theme-primary"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -84,7 +81,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div className="md:hidden bg-theme-primary border-t border-theme">
           <div className="px-4 py-3 space-y-3">
             {navLinks.map((link) => (
               <NavLink
@@ -94,8 +91,8 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 className={({ isActive }) =>
                   `block px-3 py-2 rounded-lg text-base font-medium transition-colors duration-200 ${
                     isActive
-                      ? 'bg-primary text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'bg-coral text-white'
+                      : 'hover:bg-theme-card text-theme-primary'
                   }`
                 }
               >

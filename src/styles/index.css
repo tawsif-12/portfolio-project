@@ -2,30 +2,240 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Variables */
+:root.dark-theme {
+  --bg-primary: #1a1f2e;
+  --bg-card: #232936;
+  --bg-card-alt: #2a3142;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  --border-color: #1a1a1a;
+}
+
+:root.light-theme {
+  --bg-primary: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-card-alt: #f1f3f5;
+  --text-primary: #1a1f2e;
+  --text-secondary: #495057;
+  --text-muted: #868e96;
+  --border-color: #dee2e6;
+}
+
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
+  }
+  
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    @apply antialiased;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    color: var(--text-primary);
+  }
+  
+  p {
+    color: var(--text-secondary);
+    @apply text-sm leading-relaxed;
   }
 }
 
 @layer components {
+  /* Button Styles */
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200;
+    @apply bg-coral hover:bg-coral-dark font-semibold py-3 px-8 rounded transition-colors duration-200;
+    color: #ffffff;
   }
   
   .btn-secondary {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200;
+    @apply font-semibold py-3 px-8 rounded transition-all duration-200;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
   }
   
+  .btn-secondary:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+  }
+  
+  .btn-outline {
+    @apply font-semibold py-3 px-8 rounded transition-all duration-200;
+    border: 2px solid #e8533a;
+    color: #e8533a;
+  }
+  
+  .btn-outline:hover {
+    background-color: #e8533a;
+    color: #ffffff;
+  }
+  
+  /* Card Styles */
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+    @apply rounded-lg p-6 transition-all duration-300;
+    background-color: var(--bg-card);
   }
   
+  .card:hover {
+    background-color: var(--bg-card-alt);
+  }
+  
+  .card-bordered {
+    @apply card;
+    border-left: 3px solid #e8533a;
+  }
+  
+  /* Section Divider */
+  .section-divider {
+    @apply w-16 h-0.5 bg-coral my-4;
+  }
+  
+  .section-divider-full {
+    @apply w-full h-px;
+    background-color: rgba(232, 83, 58, 0.2);
+  }
+  
+  /* Input Styles */
   .input-field {
-    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+    @apply w-full px-4 py-3 rounded transition-all;
+    background-color: var(--bg-card);
+    border: 1px solid var(--text-muted);
+    color: var(--text-primary);
   }
   
+  .input-field:focus {
+    @apply outline-none ring-2 ring-coral;
+    border-color: transparent;
+  }
+  
+  .textarea-field {
+    @apply input-field resize-none;
+  }
+  
+  /* Section Container */
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+  }
+  
+  /* Profile Image with Coral Ring */
+  .profile-image {
+    @apply rounded-full shadow-lg;
+    border: 4px solid #e8533a;
+  }
+  
+  /* Decorative Angle Brackets */
+  .bracket-decoration {
+    @apply font-bold select-none pointer-events-none;
+    color: #e8533a;
+    opacity: 0.1;
+    font-size: 15rem;
+    line-height: 1;
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    @apply transition-colors duration-200 font-medium;
+    color: var(--text-primary);
+  }
+  
+  .nav-link:hover {
+    color: #e8533a;
+  }
+  
+  /* Stats Style */
+  .stat-number {
+    @apply text-4xl font-bold;
+    color: var(--text-primary);
+  }
+  
+  .stat-symbol {
+    color: #e8533a;
+  }
+  
+  /* Service Card */
+  .service-card {
+    @apply flex items-start gap-4 p-4 transition-all duration-200;
+    background-color: var(--bg-card);
+    border-left: 3px solid #e8533a;
+  }
+  
+  .service-card:hover {
+    background-color: var(--bg-card-alt);
+  }
+  
+  /* Icon Container */
+  .icon-box {
+    @apply w-12 h-12 rounded flex items-center justify-center;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
+  }
+  
+  /* Tech Stack Badge */
+  .tech-badge {
+    @apply px-4 py-2 text-sm rounded whitespace-nowrap transition-all duration-200;
+    background-color: var(--bg-card);
+    border: 1px solid var(--text-muted);
+    color: var(--text-secondary);
+  }
+  
+  .tech-badge:hover {
+    border-color: #e8533a;
+    color: var(--text-primary);
+  }
+  
+  /* Horizontal Scroll Container */
+  .scroll-container {
+    @apply flex gap-3 overflow-x-auto pb-2 scrollbar-hide;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Theme-aware backgrounds */
+  .bg-theme-primary {
+    background-color: var(--bg-primary);
+  }
+  
+  .bg-theme-card {
+    background-color: var(--bg-card);
+  }
+  
+  .bg-theme-card-alt {
+    background-color: var(--bg-card-alt);
+  }
+  
+  .text-theme-primary {
+    color: var(--text-primary);
+  }
+  
+  .text-theme-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .text-theme-muted {
+    color: var(--text-muted);
+  }
+  
+  .border-theme {
+    border-color: var(--border-color);
   }
 }

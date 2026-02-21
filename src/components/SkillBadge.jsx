@@ -39,10 +39,10 @@ function SkillBadge({ skill, category }) {
 
   return (
     <div
-      className={`flex items-center justify-between px-4 py-3 rounded-lg border-2 ${colorClass} transition-all duration-200 hover:scale-105`}
+      className="flex items-center justify-between px-4 py-3 rounded-lg border-2 bg-theme-card-alt text-theme-primary border-theme transition-all duration-200 hover:scale-105 hover:border-coral"
     >
       <div className="flex items-center space-x-3">
-        {Icon && <span className="flex-shrink-0">{Icon}</span>}
+        {Icon && <span className="flex-shrink-0 text-coral">{Icon}</span>}
         <span className="font-medium">{skill.name}</span>
       </div>
       
@@ -51,11 +51,8 @@ function SkillBadge({ skill, category }) {
           {[...Array(4)].map((_, index) => (
             <div
               key={index}
-              className={`w-2 h-2 rounded-full ${
-                index < dots
-                  ? 'bg-current'
-                  : 'bg-gray-300 dark:bg-gray-600'
-              }`}
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: index < dots ? '#e8533a' : 'var(--text-muted)' }}
             />
           ))}
         </div>

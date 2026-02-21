@@ -2,7 +2,7 @@ export const profile = {
   name: "Md Towsif Bin Mannan",
   tagline: "AI/ML & Data Science Enthusiast | CSE Undergraduate",
   bio: "Passionate Computer Science undergraduate specializing in AI/ML and Data Science. I build data-driven solutions and modern web applications using cutting-edge technologies. Experienced in prompt engineering, data analytics, and full-stack development.",
-  avatar: "/avatar.jpg", // Add your avatar image to public folder
+  avatar: "/avatar.png", // Add your avatar image to public folder
   email: "towsif@example.com",
   location: "Bangladesh",
   socialLinks: {
