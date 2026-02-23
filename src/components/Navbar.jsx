@@ -78,7 +78,7 @@ function Navbar({ isDarkMode, toggleTheme }) {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <button onClick={() => scrollToSection('home')} className="flex items-center">
-            <span className="text-2xl font-bold text-coral">{profile.name.split(' ').map(n => n[0]).join('')}</span>
+            <img src="/img/logo.png" alt="Logo" className="h-10 w-auto" />
           </button>
 
           {/* Desktop Navigation */}
