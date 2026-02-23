@@ -77,8 +77,11 @@ function Navbar({ isDarkMode, toggleTheme }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <button onClick={() => scrollToSection('home')} className="flex items-center">
+          <button onClick={() => scrollToSection('home')} className="flex items-center space-x-3">
             <img src="/img/logo.png" alt="Logo" className="h-10 w-auto" />
+            <span className="text-xl font-bold text-theme-text">
+              Portfolio <span className="text-coral">| Towsif</span>
+            </span>
           </button>
 
           {/* Desktop Navigation */}
