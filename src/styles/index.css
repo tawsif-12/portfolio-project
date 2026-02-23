@@ -34,6 +34,7 @@
     background-color: var(--bg-primary);
     transition: background-color 0.3s ease;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
@@ -42,6 +43,8 @@
     @apply antialiased;
     font-size: 16px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -58,7 +61,7 @@
 @layer components {
   /* Button Styles */
   .btn-primary {
-    @apply bg-coral hover:bg-coral-dark font-semibold py-3 px-8 rounded transition-all duration-300;
+    @apply bg-coral hover:bg-coral-dark font-semibold py-2 px-4 sm:py-3 sm:px-8 rounded transition-all duration-300;
     color: #ffffff;
   }
   
@@ -68,7 +71,7 @@
   }
   
   .btn-secondary {
-    @apply font-semibold py-3 px-8 rounded transition-all duration-300;
+    @apply font-semibold py-2 px-4 sm:py-3 sm:px-8 rounded transition-all duration-300;
     border: 2px solid var(--text-primary);
     color: var(--text-primary);
   }
@@ -81,7 +84,7 @@
   }
   
   .btn-outline {
-    @apply font-semibold py-3 px-8 rounded transition-all duration-300;
+    @apply font-semibold py-2 px-4 sm:py-3 sm:px-8 rounded transition-all duration-300;
     border: 2px solid #e8533a;
     color: #e8533a;
   }
@@ -95,7 +98,7 @@
   
   /* Card Styles */
   .card {
-    @apply rounded-lg p-6 transition-all duration-300;
+    @apply rounded-lg p-4 sm:p-6 transition-all duration-300;
     background-color: var(--bg-card);
   }
   
@@ -139,7 +142,7 @@
   
   /* Section Container */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-20;
   }
   
   /* Profile Image with Coral Ring */

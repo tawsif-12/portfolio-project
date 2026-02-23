@@ -16,10 +16,10 @@ function BlogPost() {
   if (!post) {
     return (
       <div className="section-container text-center">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Post Not Found
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-8">
           The blog post you're looking for doesn't exist.
         </p>
         <Link to="/blog" className="btn-primary">
@@ -70,12 +70,12 @@ function BlogPost() {
                 Featured
               </span>
             )}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               {post.title}
             </h1>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
+            <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4 sm:gap-6 text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6">
               <div className="flex items-center">
                 <FaUser className="mr-2" />
                 {post.author}

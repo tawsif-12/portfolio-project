@@ -55,26 +55,25 @@ function ProjectDetail() {
                 {project.category}
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-theme-primary mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-theme-primary mb-4">
               {project.title}
             </h1>
-            <p className="text-xl text-theme-secondary mb-6">
+            <p className="text-base sm:text-lg md:text-xl text-theme-secondary mb-6">
               {project.description}
             </p>
-            <div className="flex items-center text-theme-secondary mb-6">
+            <div className="flex items-center text-sm sm:text-base text-theme-secondary mb-6">
               <FaCalendar className="mr-2" />
               {project.date}
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 md:gap-4">
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary hover:scale-105 transform transition-all"
-                >
+                  className="btn-primary hover:scale-105 transform transition-all text-sm sm:text-base">
                   <FaExternalLinkAlt className="inline mr-2" />
-                  View Live Demo
+                  <span className="hidden sm:inline">View </span>Live Demo
                 </a>
               )}
               {project.githubUrl && (
@@ -82,10 +81,9 @@ function ProjectDetail() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary hover:scale-105 transform transition-all"
-                >
+                  className="btn-secondary hover:scale-105 transform transition-all text-sm sm:text-base">
                   <FaGithub className="inline mr-2" />
-                  View Source Code
+                  <span className="hidden sm:inline">View </span>Source Code
                 </a>
               )}
             </div>
@@ -100,7 +98,7 @@ function ProjectDetail() {
             ref={screenshotRef}
             className={`${isScreenshotVisible ? 'scroll-scale visible' : 'scroll-scale'}`}
           >
-            <h2 className="text-3xl font-bold text-theme-primary mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-theme-primary mb-8">
               <FaTag className="inline mr-3" />
               Project Screenshots
             </h2>
@@ -119,7 +117,7 @@ function ProjectDetail() {
             
             {/* Thumbnail Navigation */}
             {project.screenshots.length > 1 && (
-              <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
                 {project.screenshots.map((screenshot, index) => (
                   <div
                     key={index}

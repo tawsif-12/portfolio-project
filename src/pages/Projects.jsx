@@ -25,11 +25,11 @@ function Projects() {
       <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary animate-fade-in-scale">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-theme-primary animate-fade-in-scale">
               My Projects
             </h1>
             <div className="section-divider mx-auto"></div>
-            <p className="text-xl text-theme-secondary animate-fade-in-up delay-100">
+            <p className="text-base sm:text-lg md:text-xl text-theme-secondary animate-fade-in-up delay-100">
               A collection of projects I've worked on, showcasing my skills and
               passion for development
             </p>

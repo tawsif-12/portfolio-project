@@ -21,14 +21,14 @@ function Resume() {
       <section className="bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-theme-primary animate-fade-in-scale">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-theme-primary animate-fade-in-scale">
               Resume
             </h1>
             <div className="section-divider mx-auto"></div>
-            <p className="text-xl mb-8 text-theme-secondary animate-fade-in-up delay-100">
+            <p className="text-base sm:text-lg md:text-xl mb-8 text-theme-secondary animate-fade-in-up delay-100">
               {resume.summary}
             </p>
-            <button onClick={handleDownload} className="btn-primary animate-fade-in-up delay-200">
+            <button onClick={handleDownload} className="btn-primary animate-fade-in-up delay-200 text-sm sm:text-base">
               <FaDownload className="inline mr-2" />
               Download PDF Resume
             </button>
@@ -46,26 +46,26 @@ function Resume() {
           {resume.experience.map((exp, index) => (
             <div
               key={exp.id}
-              className="relative pl-8 pb-12 border-l-2 border-coral last:pb-0"
+              className="relative pl-4 sm:pl-8 pb-8 sm:pb-12 border-l-2 border-coral last:pb-0"
             >
-              <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-coral" style={{ borderWidth: '4px', borderColor: 'var(--card-bg)', borderStyle: 'solid' }} />
+              <div className="absolute left-0 top-0 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-coral" style={{ borderWidth: '3px', borderColor: 'var(--card-bg)', borderStyle: 'solid' }} />
 
               <ScrollAnimatedCard animationType="slide-right" delay={index * 100}>
                 <div className="card hover:shadow-xl transition-all duration-500">
-                <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-theme-primary">
+                <div className="flex flex-col sm:flex-row items-start justify-between gap-2 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-theme-primary">
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-coral font-medium">
+                    <p className="text-base sm:text-lg text-coral font-medium">
                       {exp.company}
                     </p>
-                    <p className="text-sm text-theme-muted">
+                    <p className="text-xs sm:text-sm text-theme-muted">
                       {exp.location}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <p className="flex items-center text-theme-secondary">
+                  <div className="text-left sm:text-right">
+                    <p className="flex items-center text-sm sm:text-base text-theme-secondary">
                       <FaBriefcase className="mr-2" />
                       {exp.period}
                     </p>
@@ -76,7 +76,7 @@ function Resume() {
                   {exp.responsibilities.map((resp, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start text-theme-secondary"
+                      className="flex items-start text-sm sm:text-base text-theme-secondary"
                     >
                       <span className="text-coral mr-2 mt-1">▸</span>
                       <span>{resp}</span>
@@ -97,25 +97,25 @@ function Resume() {
           {resume.education.map((edu, index) => (
             <ScrollAnimatedCard key={edu.id} animationType="scale" delay={index * 100}>
               <div className="card hover:shadow-xl transition-all duration-500 hover:scale-105">
-              <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-1 text-theme-primary">
+              <div className="flex flex-col sm:flex-row items-start justify-between gap-2 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-theme-primary">
                     {edu.degree}
                   </h3>
-                  <p className="text-lg text-coral font-medium mb-1">
+                  <p className="text-base sm:text-lg text-coral font-medium mb-1">
                     {edu.school}
                   </p>
-                  <p className="text-sm text-theme-muted">
+                  <p className="text-xs sm:text-sm text-theme-muted">
                     {edu.location}
                   </p>
                   {edu.gpa && (
-                    <p className="text-sm mt-1 text-theme-secondary">
+                    <p className="text-xs sm:text-sm mt-1 text-theme-secondary">
                       GPA: {edu.gpa}
                     </p>
                   )}
                 </div>
-                <div className="text-right">
-                  <p className="flex items-center text-theme-secondary">
+                <div className="text-left sm:text-right">
+                  <p className="flex items-center text-sm sm:text-base text-theme-secondary">
                     <FaGraduationCap className="mr-2" />
                     {edu.period}
                   </p>
@@ -124,14 +124,14 @@ function Resume() {
 
               {edu.achievements && (
                 <div className="mt-4">
-                  <h4 className="font-semibold mb-2 text-theme-primary">
+                  <h4 className="font-semibold mb-2 text-sm sm:text-base text-theme-primary">
                     Achievements:
                   </h4>
                   <ul className="space-y-1">
                     {edu.achievements.map((achievement, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start text-theme-secondary"
+                        className="flex items-start text-sm sm:text-base text-theme-secondary"
                       >
                         <span className="text-coral mr-2">▸</span>
                         <span>{achievement}</span>

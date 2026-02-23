@@ -34,10 +34,10 @@ function Blog() {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
         <div className="section-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-scale">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-scale">
               Blog
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 animate-fade-in-up delay-100">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 animate-fade-in-up delay-100">
               Thoughts, tutorials, and insights on web development and
               technology
             </p>

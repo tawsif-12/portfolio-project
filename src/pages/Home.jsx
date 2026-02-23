@@ -48,30 +48,30 @@ function Home() {
       {/* Hero Section */}
       <section id="home" className="bg-theme-primary relative overflow-hidden" style={{ transition: 'background-color 0.3s ease' }}>
         <div className="section-container min-h-[80vh] flex items-center relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center w-full">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
             {/* Text Left */}
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-theme-primary animate-fade-in-scale">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-theme-primary animate-fade-in-scale">
                 Hi, I'm{' '}
                 <span className="text-coral animate-text-pulse">{profile.name}</span>
               </h1>
               <div className="section-divider"></div>
-              <p className="text-2xl mb-6 text-theme-primary animate-fade-in-up delay-100">
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 text-theme-primary animate-fade-in-up delay-100">
                 {profile.tagline}
               </p>
-              <p className="text-lg mb-8 max-w-xl text-theme-secondary font-medium animate-fade-in-up delay-200">
+              <p className="text-base md:text-lg mb-8 max-w-xl text-theme-secondary font-medium animate-fade-in-up delay-200">
                 CSE student passionate about AI, ML, and Data Science. I build data-driven applications, explore new technologies, and aim to create intelligent solutions with real-world impact.
               </p>
-              <div className="flex flex-wrap gap-4 animate-fade-in-up delay-300">
-                <button onClick={() => scrollToSection('projects')} className="btn-primary">
+              <div className="flex flex-wrap gap-3 md:gap-4 animate-fade-in-up delay-300">
+                <button onClick={() => scrollToSection('projects')} className="btn-primary text-sm sm:text-base">
                   View My Work <FaArrowRight className="inline ml-2" />
                 </button>
-                <button onClick={() => scrollToSection('contact')} className="btn-secondary">
+                <button onClick={() => scrollToSection('contact')} className="btn-secondary text-sm sm:text-base">
                   Get In Touch
                 </button>
-                <button onClick={handleDownload} className="btn-outline">
+                <button onClick={handleDownload} className="btn-outline text-sm sm:text-base">
                   <FaDownload className="inline mr-2" />
-                  Download Resume
+                  <span className="hidden sm:inline">Download </span>Resume
                 </button>
               </div>
               <div className="flex space-x-4 mt-8">
@@ -81,7 +81,7 @@ function Home() {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  <FaGithub className="w-8 h-8" />
+                  <FaGithub className="w-6 h-6 sm:w-8 sm:h-8" />
                 </a>
                 <a
                   href={profile.socialLinks.linkedin}
@@ -89,16 +89,16 @@ function Home() {
                   rel="noopener noreferrer"
                   className="nav-link"
                 >
-                  <FaLinkedin className="w-8 h-8" />
+                  <FaLinkedin className="w-6 h-6 sm:w-8 sm:h-8" />
                 </a>
               </div>
             </div>
             
             {/* Image Right with Decorative Elements */}
             <div className="flex justify-center md:justify-end relative">
-              {/* Left angle bracket decoration */}
+              {/* Left angle bracket decoration - hidden on mobile */}
               <div 
-                className="absolute font-bold select-none pointer-events-none"
+                className="hidden lg:block absolute font-bold select-none pointer-events-none"
                 style={{
                   color: '#e8533a',
                   fontSize: '12rem',
@@ -119,9 +119,9 @@ function Home() {
                 <div 
                   className="absolute rounded-full"
                   style={{
-                    width: '400px',
-                    height: '400px',
-                    border: '35px solid #e8533a',
+                    width: 'min(400px, 80vw)',
+                    height: 'min(400px, 80vw)',
+                    border: 'min(35px, 7vw) solid #e8533a',
                     opacity: '0.8',
                     boxShadow: '0 0 60px rgba(232, 83, 58, 0.5), 0 0 100px rgba(232, 83, 58, 0.3), inset 0 0 40px rgba(232, 83, 58, 0.5), inset 0 0 80px rgba(232, 83, 58, 0.3)'
                   }}
@@ -135,13 +135,13 @@ function Home() {
                     className="relative rounded-full object-cover object-center"
                     style={{ 
                       zIndex: '2',
-                      width: '330px',
-                      height: '330px'
+                      width: 'min(330px, 70vw)',
+                      height: 'min(330px, 70vw)'
                     }}
                   />
                 ) : (
-                  <div className="relative rounded-full bg-theme-card flex items-center justify-center" style={{ zIndex: '2', width: '330px', height: '330px' }}>
-                    <span className="text-6xl font-bold text-theme-primary">
+                  <div className="relative rounded-full bg-theme-card flex items-center justify-center" style={{ zIndex: '2', width: 'min(330px, 70vw)', height: 'min(330px, 70vw)' }}>
+                    <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-theme-primary">
                       {profile.name
                         .split(' ')
                         .map((n) => n[0])
@@ -151,9 +151,9 @@ function Home() {
                 )}
               </div>
               
-              {/* Right angle bracket decoration */}
+              {/* Right angle bracket decoration - hidden on mobile */}
               <div 
-                className="absolute font-bold select-none pointer-events-none"
+                className="hidden lg:block absolute font-bold select-none pointer-events-none"
                 style={{
                   color: '#e8533a',
                   fontSize: '12rem',
@@ -184,25 +184,25 @@ function Home() {
         </div>
 
         {/* Education */}
-        <div className="max-w-4xl mx-auto mt-16">
-          <h3 className="text-3xl font-bold mb-8 text-theme-primary text-center animate-fade-in-scale">Education</h3>
+        <div className="max-w-4xl mx-auto mt-12 sm:mt-16">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-theme-primary text-center animate-fade-in-scale">Education</h3>
           {profile.education.map((edu, index) => (
             <ScrollAnimatedCard key={edu.id} animationType="scale" delay={index * 100}>
               <div className="card mb-6 hover:shadow-xl transition-all duration-500 hover:scale-105">
-                <div className="flex items-start justify-between flex-wrap gap-2">
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-1 text-theme-primary">
+                <div className="flex flex-col sm:flex-row items-start justify-between gap-2">
+                  <div className="flex-1">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-theme-primary">
                       {edu.degree}
                     </h3>
-                    <p className="text-lg text-coral font-medium mb-2">
+                    <p className="text-base sm:text-lg text-coral font-medium mb-2">
                       {edu.school}
                     </p>
-                    <p className="text-theme-secondary">
+                    <p className="text-sm sm:text-base text-theme-secondary">
                       {edu.description}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <p className="flex items-center text-theme-secondary">
+                  <div className="text-left sm:text-right">
+                    <p className="flex items-center text-sm sm:text-base text-theme-secondary">
                       <FaGraduationCap className="mr-2" />
                       {edu.period}
                     </p>
@@ -223,7 +223,7 @@ function Home() {
         
         {/* Programming Languages */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-theme-primary">
             Programming Languages
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -239,7 +239,7 @@ function Home() {
 
         {/* AI & Data Science */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-theme-primary">
             AI & Data Science
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -255,7 +255,7 @@ function Home() {
 
         {/* Database Skills */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-theme-primary">
             Databases
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -271,7 +271,7 @@ function Home() {
 
         {/* Tools & Platforms */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-theme-primary">
             Tools & Platforms
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -283,7 +283,7 @@ function Home() {
 
         {/* Frontend Development */}
         <div>
-          <h3 className="text-2xl font-semibold mb-6 text-theme-primary">
+          <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-theme-primary">
             Frontend Development
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

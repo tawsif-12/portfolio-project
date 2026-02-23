@@ -20,10 +20,10 @@ function CertificateDetail() {
   if (!cert) {
     return (
       <div className="section-container text-center bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
-        <h1 className="text-4xl font-bold text-theme-primary mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-theme-primary mb-4">
           Certificate Not Found
         </h1>
-        <p className="text-theme-secondary mb-8">
+        <p className="text-sm sm:text-base text-theme-secondary mb-8">
           The certificate you're looking for doesn't exist.
         </p>
         <Link to="/" className="btn-primary">
@@ -56,18 +56,18 @@ function CertificateDetail() {
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-theme-primary">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-theme-primary">
               {cert.name}
             </h1>
             
-            <div className="flex flex-wrap gap-6 text-lg mb-6 text-theme-secondary">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 text-base sm:text-lg mb-6 text-theme-secondary">
               <div className="flex items-center">
                 <FaAward className="mr-2 text-coral" />
-                <span>Issued by: {cert.issuer}</span>
+                <span className="text-sm sm:text-base">Issued by: {cert.issuer}</span>
               </div>
               <div className="flex items-center">
                 <FaCalendar className="mr-2 text-coral" />
-                <span>Completed: {cert.date}</span>
+                <span className="text-sm sm:text-base">Completed: {cert.date}</span>
               </div>
             </div>
             
@@ -89,11 +89,11 @@ function CertificateDetail() {
             ref={imageRef}
             className={`max-w-4xl mx-auto ${isImageVisible ? 'scroll-scale visible' : 'scroll-scale'}`}
           >
-            <h2 className="text-3xl font-bold text-theme-primary mb-8 text-center">
-              <FaCertificate className="inline mr-3 text-coral" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-theme-primary mb-6 sm:mb-8 text-center">
+              <FaCertificate className="inline mr-2 sm:mr-3 text-coral" />
               Certificate Preview
             </h2>
-            <div className="rounded-lg overflow-hidden shadow-2xl bg-theme-card border-4 border-coral border-opacity-20 hover:border-opacity-40 hover:shadow-coral transition-all duration-300">
+            <div className="rounded-lg overflow-hidden shadow-2xl bg-theme-card border-2 sm:border-4 border-coral border-opacity-20 hover:border-opacity-40 hover:shadow-coral transition-all duration-300">
               <img
                 src={cert.image}
                 alt={cert.name}
