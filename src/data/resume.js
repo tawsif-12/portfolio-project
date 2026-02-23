@@ -86,17 +86,17 @@ export const resume = {
   certifications: [
     {
       id: 1,
-      name: "Certificate of Appreciation - Head of Football",
-      issuer: "AUST Sports Club",
-      date: "2025",
-      description: "Recognition for exceptional leadership and dedication as Head of Football at AUST Sports Club. This certificate reflects teamwork, dedication, and the vibrant sports culture built together at AUST.",
-      image: "/img/sports.jpg",
-      relatedTopics: ["Leadership", "Team Management", "Sports Administration", "Community Building", "Strategic Planning"],
+      name: "AI and Machine Learning Certificate",
+      issuer: "Professional Development",
+      date: "2024",
+      description: "Completed comprehensive training in Artificial Intelligence and Machine Learning, gaining hands-on experience with various AI technologies and methodologies.",
+      image: "/img/ai.png",
+      relatedTopics: ["Artificial Intelligence", "Machine Learning", "Deep Learning", "Neural Networks", "Python", "AI Development"],
       skills: [
-        "Led and managed football team operations and strategy",
-        "Built strong team culture and fostered community engagement",
-        "Developed leadership and organizational skills",
-        "Coordinated team activities and inter-departmental competitions"
+        "Understanding of AI and ML algorithms and concepts",
+        "Practical application of AI techniques",
+        "Machine learning model development",
+        "AI-driven problem solving"
       ]
     },
     {
@@ -116,6 +116,21 @@ export const resume = {
     },
     {
       id: 3,
+      name: "Certificate of Appreciation - Head of Football",
+      issuer: "AUST Sports Club",
+      date: "2025",
+      description: "Recognition for exceptional leadership and dedication as Head of Football at AUST Sports Club. This certificate reflects teamwork, dedication, and the vibrant sports culture built together at AUST.",
+      image: "/img/sports.jpg",
+      relatedTopics: ["Leadership", "Team Management", "Sports Administration", "Community Building", "Strategic Planning"],
+      skills: [
+        "Led and managed football team operations and strategy",
+        "Built strong team culture and fostered community engagement",
+        "Developed leadership and organizational skills",
+        "Coordinated team activities and inter-departmental competitions"
+      ]
+    },
+    {
+      id: 4,
       name: "Pandas Course",
       issuer: "Kaggle",
       date: "2026",
@@ -131,7 +146,7 @@ export const resume = {
       ]
     },
     {
-      id: 4,
+      id: 5,
       name: "Certificate of Achievement - Regional High School ICT Quiz Contest 2016",
       issuer: "National High School Programming Contest - ICT Division",
       date: "2016",

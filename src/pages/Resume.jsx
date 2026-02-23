@@ -8,14 +8,11 @@ import {
   FaAward,
   FaDownload,
 } from 'react-icons/fa';
+import { generateResumePDF } from '../utils/resumePdfGenerator';
 
 function Resume() {
   const handleDownload = () => {
-    // Create a link to download the PDF
-    const link = document.createElement('a');
-    link.href = resume.pdfUrl;
-    link.download = 'resume.pdf';
-    link.click();
+    generateResumePDF();
   };
 
   return (

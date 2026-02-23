@@ -12,6 +12,7 @@ import StepArrow from '../components/StepArrow';
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ScrollAnimatedCard from '../components/ScrollAnimatedCard';
+import { generateResumePDF } from '../utils/resumePdfGenerator';
 
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -32,10 +33,7 @@ function Home() {
     : projects.filter((project) => project.category === selectedCategory);
 
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = resume.pdfUrl;
-    link.download = 'resume.pdf';
-    link.click();
+    generateResumePDF();
   };
 
   const scrollToSection = (sectionId) => {
