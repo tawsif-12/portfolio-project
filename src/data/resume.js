@@ -116,44 +116,33 @@ export const resume = {
     },
     {
       id: 3,
-      name: "AI and Machine Learning Fundamentals",
-      issuer: "Coursera",
-      date: "2024",
-      credentialId: "AIML2024",
-      relatedTopics: ["Artificial Intelligence", "Machine Learning", "Neural Networks", "Python", "Data Science", "Deep Learning"],
+      name: "Pandas Course",
+      issuer: "Kaggle",
+      date: "2026",
+      description: "Successfully completed Pandas course on Kaggle! It's been super helpful in understanding how to work with data using Python. Currently diving deeper into machine learning, and this is a solid step in the journey.",
+      image: "/img/kaggle.jpg",
+      relatedTopics: ["Python", "Pandas", "Data Science", "Data Analysis", "Machine Learning", "Data Manipulation"],
       skills: [
-        "Understanding of machine learning algorithms and concepts",
-        "Practical application of AI techniques",
-        "Python programming for ML applications",
-        "Model training and evaluation"
+        "Data manipulation and transformation with Pandas",
+        "Working with DataFrames and Series",
+        "Data cleaning and preprocessing techniques",
+        "Exploratory data analysis using Python",
+        "Preparing data for machine learning applications"
       ]
     },
     {
       id: 4,
-      name: "Data Analytics Professional Certificate",
-      issuer: "Google",
-      date: "2023",
-      credentialId: "GAPC2023",
-      relatedTopics: ["Data Analysis", "Data Visualization", "SQL", "Statistics", "Business Intelligence", "Excel"],
+      name: "Certificate of Achievement - Regional High School ICT Quiz Contest 2016",
+      issuer: "National High School Programming Contest - ICT Division",
+      date: "2016",
+      description: "I'm thrilled to share a milestone from my journey! Nine years ago, I was awarded the Certificate of Achievement as the winner of the Regional High School ICT Quiz Contest 2016, hosted by the National High School Programming Contest in Chittagong. This recognition from the ICT division marked the beginning of my deep passion for Computer Science and Engineering (CSE). Since then, my enthusiasm for technology and problem-solving has only grown stronger. Grateful for the foundation this experience laid and excited for what's ahead!",
+      image: "/img/cert.jpg",
+      relatedTopics: ["ICT", "Quiz Competition", "Problem Solving", "Computer Science", "Academic Achievement", "Technology"],
       skills: [
-        "Data cleaning and preparation techniques",
-        "Statistical analysis and interpretation",
-        "Creating interactive visualizations",
-        "SQL queries and database management"
-      ]
-    },
-    {
-      id: 5,
-      name: "Full Stack Web Development",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      credentialId: "FCC789",
-      relatedTopics: ["Web Development", "JavaScript", "React", "Node.js", "HTML/CSS", "APIs", "Responsive Design"],
-      skills: [
-        "Building responsive web applications",
-        "Frontend development with React",
-        "Backend development with Node.js and Express",
-        "RESTful API design and implementation"
+        "Demonstrated strong ICT knowledge and problem-solving skills",
+        "Won regional-level academic competition",
+        "Foundation in computer science concepts",
+        "Early passion for technology and innovation"
       ]
     },
   ],
