@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { profile } from '../data/profile';
 
 function Navbar({ isDarkMode, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { path: 'home', label: 'Home' },
@@ -16,8 +19,10 @@ function Navbar({ isDarkMode, toggleTheme }) {
     { path: 'contact', label: 'Contact' },
   ];
 
-  // Scroll spy effect - highlight active section in navbar
+  // Scroll spy effect - highlight active section in navbar (only on home page)
   useEffect(() => {
+    if (location.pathname !== '/') return;
+
     const handleScroll = () => {
       const sections = navLinks.map(link => document.getElementById(link.path));
       const scrollPosition = window.scrollY + 100; // Offset for navbar height
@@ -35,13 +40,34 @@ function Navbar({ isDarkMode, toggleTheme }) {
     handleScroll(); // Call once on mount
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
+
+  // Handle scrolling to section after navigation
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const sectionId = location.hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setActiveSection(sectionId);
+        }
+      }, 100);
+    }
+  }, [location]);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(sectionId);
+        setIsOpen(false);
+      }
+    } else {
+      // Navigate to home page with hash
+      navigate(`/#${sectionId}`);
       setIsOpen(false);
     }
   };
