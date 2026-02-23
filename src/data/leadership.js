@@ -6,10 +6,9 @@ export const leadership = [
     period: "2023 – Present",
     description: "Led organizing efforts and coordinated club activities to ensure smooth and efficient event execution.",
     achievements: [
-      "Planned and executed 10+ technical events, workshops, and competitions",
+      "Planned and executed 10+ individual events, workshops, and competitions",
       "Coordinated logistics, scheduling, and volunteer management for club programs",
-      "Maintained communication between organizers, club members, and faculty advisors",
-      "Collaborated with senior coordinators to ensure seamless event operations"
+      "Maintained communication between organizers, club members, and faculty advisors"
     ],
     icon: "FaUsers"
   },
@@ -43,32 +42,27 @@ export const leadership = [
     id: 4,
     role: "Head of Football",
     organization: "AUST Sports Club",
-    period: "2020 - Present",
+    period: "2023 – Present",
     description: "Led football operations and team management at AUST Sports Club, building a vibrant sports culture through teamwork and dedication.",
     achievements: [
       "Received Certificate of Appreciation for exceptional leadership",
-      "Led football team to won inter-dept championship",
-      "Managed team strategy, player coordination, and club operations",
-      "Built strong team culture and fostered community building on and off the field",
-      "Represented AUST in regional sports competitions"
+      "Led football team to university-wide championship",
+      "Managed team strategy, player coordination, and club operations"
     ],
-    icon: "FaTrophy",
-    image: "/img/sports.jpg"
+    icon: "FaTrophy"
   },
   {
     id: 5,
     role: "Volunteer",
-    organization: "SheSTEM x AUST Programming and Informatics Club Job Fair",
+    organization: "SheSTEM × AUST Programming & Informatics Club Job Fair",
     period: "2025",
     description: "Volunteered at the job fair organized by SheSTEM in collaboration with AUST Programming and Informatics Club, serving at the SGS BD stall.",
     achievements: [
       "Assisted with coordination and interacted with participants throughout the event",
       "Worked closely with the SGS team, gaining valuable professional rapport",
-      "Developed communication and organizational skills in a professional job fair environment",
-      "Contributed to the successful execution of the event by supporting logistics and participant engagement"
+      "Developed communication and organizational skills in a professional job fair environment"
     ],
-    icon: "FaHandshake",
-    image: "/img/jobfair.jpg"
+    icon: "FaHandshake"
   }
 ];
 
