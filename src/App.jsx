@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetail';
+import About from './pages/About';
+import Resume from './pages/Resume';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Contact from './pages/Contact';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -28,7 +36,16 @@ function App() {
     <div className="min-h-screen flex flex-col bg-theme-primary" style={{ transition: 'background-color 0.3s ease' }}>
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <main className="flex-grow">
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </main>
       <Footer />
     </div>

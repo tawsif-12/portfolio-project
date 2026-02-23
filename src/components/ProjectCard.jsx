@@ -1,4 +1,5 @@
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 function ProjectCard({ project }) {
@@ -12,7 +13,8 @@ function ProjectCard({ project }) {
       }`}
     >
       {/* Project Image */}
-      <div className="relative overflow-hidden rounded-lg mb-4 bg-theme-card-alt h-48">
+      <Link to={`/project/${project.id}`} className="block">
+        <div className="relative overflow-hidden rounded-lg mb-4 bg-theme-card-alt h-48 cursor-pointer">
         {project.screenshots && project.screenshots[0] ? (
           <img
             src={project.screenshots[0]}
@@ -32,15 +34,18 @@ function ProjectCard({ project }) {
             Featured
           </span>
         )}
-      </div>
+        </div>
+      </Link>
 
       {/* Project Info */}
       <div className="flex-1">
-        <div className="flex items-start justify-between mb-2">
-          <h3 className="text-xl font-semibold text-theme-primary">
-            {project.title}
-          </h3>
-        </div>
+        <Link to={`/project/${project.id}`} className="block mb-2">
+          <div className="flex items-start justify-between">
+            <h3 className="text-xl font-semibold text-theme-primary hover:text-coral transition-colors">
+              {project.title}
+            </h3>
+          </div>
+        </Link>
 
         <p className="text-sm mb-4 line-clamp-2 text-theme-secondary">
           {project.description}
@@ -65,12 +70,19 @@ function ProjectCard({ project }) {
 
         {/* Links */}
         <div className="flex space-x-4">
+          <Link
+            to={`/project/${project.id}`}
+            className="flex items-center text-sm hover:text-coral transition-colors text-theme-secondary font-medium"
+          >
+            <FaArrowRight className="mr-1" /> View Details
+          </Link>
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-sm hover:text-coral transition-colors text-theme-secondary"
+              onClick={(e) => e.stopPropagation()}
             >
               <FaGithub className="mr-1" /> Code
             </a>
@@ -81,6 +93,7 @@ function ProjectCard({ project }) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-sm hover:text-coral transition-colors text-theme-secondary"
+              onClick={(e) => e.stopPropagation()}
             >
               <FaExternalLinkAlt className="mr-1" /> Live Demo
             </a>
