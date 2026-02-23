@@ -86,24 +86,75 @@ export const resume = {
   certifications: [
     {
       id: 1,
+      name: "Certificate of Appreciation - Head of Football",
+      issuer: "AUST Sports Club",
+      date: "2025",
+      description: "Recognition for exceptional leadership and dedication as Head of Football at AUST Sports Club. This certificate reflects teamwork, dedication, and the vibrant sports culture built together at AUST.",
+      image: "/img/sports.jpg",
+      relatedTopics: ["Leadership", "Team Management", "Sports Administration", "Community Building", "Strategic Planning"],
+      skills: [
+        "Led and managed football team operations and strategy",
+        "Built strong team culture and fostered community engagement",
+        "Developed leadership and organizational skills",
+        "Coordinated team activities and inter-departmental competitions"
+      ]
+    },
+    {
+      id: 2,
+      name: "Volunteer Certificate - SheSTEM x AUST Job Fair",
+      issuer: "SheSTEM & AUST Programming and Informatics Club",
+      date: "2025",
+      description: "Volunteered at the SGS BD stall, assisted with coordination and interacted with participants.",
+      image: "/img/jobfair.jpg",
+      relatedTopics: ["Event Management", "Communication Skills", "Networking", "Professional Development", "Volunteer Work"],
+      skills: [
+        "Assisted with event coordination and participant engagement",
+        "Developed professional communication and networking skills",
+        "Gained experience in corporate event environments",
+        "Built rapport with industry professionals and career advisors"
+      ]
+    },
+    {
+      id: 3,
       name: "AI and Machine Learning Fundamentals",
       issuer: "Coursera",
       date: "2024",
       credentialId: "AIML2024",
+      relatedTopics: ["Artificial Intelligence", "Machine Learning", "Neural Networks", "Python", "Data Science", "Deep Learning"],
+      skills: [
+        "Understanding of machine learning algorithms and concepts",
+        "Practical application of AI techniques",
+        "Python programming for ML applications",
+        "Model training and evaluation"
+      ]
     },
     {
-      id: 2,
+      id: 4,
       name: "Data Analytics Professional Certificate",
       issuer: "Google",
       date: "2023",
       credentialId: "GAPC2023",
+      relatedTopics: ["Data Analysis", "Data Visualization", "SQL", "Statistics", "Business Intelligence", "Excel"],
+      skills: [
+        "Data cleaning and preparation techniques",
+        "Statistical analysis and interpretation",
+        "Creating interactive visualizations",
+        "SQL queries and database management"
+      ]
     },
     {
-      id: 3,
+      id: 5,
       name: "Full Stack Web Development",
       issuer: "freeCodeCamp",
       date: "2023",
       credentialId: "FCC789",
+      relatedTopics: ["Web Development", "JavaScript", "React", "Node.js", "HTML/CSS", "APIs", "Responsive Design"],
+      skills: [
+        "Building responsive web applications",
+        "Frontend development with React",
+        "Backend development with Node.js and Express",
+        "RESTful API design and implementation"
+      ]
     },
   ],
   

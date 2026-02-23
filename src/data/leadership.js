@@ -41,16 +41,34 @@ export const leadership = [
   },
   {
     id: 4,
-    role: "Sports Team Captain",
-    organization: "School & University Athletics",
+    role: "Head of Football",
+    organization: "AUST Sports Club",
     period: "2020 - Present",
-    description: "Captained football and cricket teams across multiple competitive levels.",
+    description: "Led football operations and team management at AUST Sports Club, building a vibrant sports culture through teamwork and dedication.",
     achievements: [
+      "Received Certificate of Appreciation for exceptional leadership",
       "Led football team to won inter-dept championship",
-      "Managed team strategy and player coordination",
-      "Represented Schools, College & university in regional sports competitions"
+      "Managed team strategy, player coordination, and club operations",
+      "Built strong team culture and fostered community building on and off the field",
+      "Represented AUST in regional sports competitions"
     ],
-    icon: "FaTrophy"
+    icon: "FaTrophy",
+    image: "/img/sports.jpg"
+  },
+  {
+    id: 5,
+    role: "Volunteer",
+    organization: "SheSTEM x AUST Programming and Informatics Club Job Fair",
+    period: "2025",
+    description: "Volunteered at the job fair organized by SheSTEM in collaboration with AUST Programming and Informatics Club, serving at the SGS BD stall.",
+    achievements: [
+      "Assisted with coordination and interacted with participants throughout the event",
+      "Worked closely with the SGS team, gaining valuable professional rapport",
+      "Developed communication and organizational skills in a professional job fair environment",
+      "Contributed to the successful execution of the event by supporting logistics and participant engagement"
+    ],
+    icon: "FaHandshake",
+    image: "/img/jobfair.jpg"
   }
 ];
 

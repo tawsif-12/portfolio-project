@@ -106,11 +106,11 @@ function ProjectDetail() {
             </h2>
             
             {/* Main Active Screenshot */}
-            <div className="mb-6 rounded-lg overflow-hidden shadow-2xl bg-theme-card-alt aspect-video hover:shadow-coral transition-shadow duration-300">
+            <div className="mb-6 rounded-lg overflow-hidden shadow-2xl bg-theme-card-alt hover:shadow-coral transition-shadow duration-300">
               <img
                 src={project.screenshots[activeImage]}
                 alt={`${project.title} screenshot ${activeImage + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
                 onError={(e) => {
                   e.target.src = `https://via.placeholder.com/800x450?text=Screenshot+${activeImage + 1}`;
                 }}
@@ -119,19 +119,19 @@ function ProjectDetail() {
             
             {/* Thumbnail Navigation */}
             {project.screenshots.length > 1 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {project.screenshots.map((screenshot, index) => (
                   <div
                     key={index}
                     onClick={() => setActiveImage(index)}
-                    className={`rounded-lg overflow-hidden shadow-lg bg-theme-card-alt aspect-video cursor-pointer transform transition-all duration-300 hover:scale-105 ${
+                    className={`rounded-lg overflow-hidden shadow-lg bg-theme-card-alt cursor-pointer transform transition-all duration-300 hover:scale-105 ${
                       activeImage === index ? 'ring-4 ring-coral scale-105' : 'opacity-70 hover:opacity-100'
                     }`}
                   >
                     <img
                       src={screenshot}
                       alt={`${project.title} thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-24 object-cover"
                       onError={(e) => {
                         e.target.src = `https://via.placeholder.com/400x225?text=Screenshot+${index + 1}`;
                       }}

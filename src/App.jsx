@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
+import CertificateDetail from './pages/CertificateDetail';
 import About from './pages/About';
 import Resume from './pages/Resume';
 import Blog from './pages/Blog';
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/certificate/:id" element={<CertificateDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/blog" element={<Blog />} />

@@ -1,6 +1,6 @@
-import { FaCrosshairs, FaSearchPlus, FaThLarge, FaChartLine, FaUsers, FaHandsHelping, FaProjectDiagram, FaTrophy } from 'react-icons/fa';
+import { FaCrosshairs, FaSearchPlus, FaThLarge, FaChartLine, FaUsers, FaHandsHelping, FaProjectDiagram, FaTrophy, FaHandshake } from 'react-icons/fa';
 
-const StepArrow = ({ number, title, subtitle, description, period, achievements, color, icon, offset, delay = 0, isVisible = true }) => {
+const StepArrow = ({ number, title, subtitle, description, period, achievements, color, icon, image, offset, delay = 0, isVisible = true }) => {
   const iconMap = {
     target: FaCrosshairs,
     search: FaSearchPlus,
@@ -9,7 +9,8 @@ const StepArrow = ({ number, title, subtitle, description, period, achievements,
     FaUsers: FaUsers,
     FaHandsHelping: FaHandsHelping,
     FaProjectDiagram: FaProjectDiagram,
-    FaTrophy: FaTrophy
+    FaTrophy: FaTrophy,
+    FaHandshake: FaHandshake
   };
   
   const IconComponent = iconMap[icon];
@@ -78,6 +79,18 @@ const StepArrow = ({ number, title, subtitle, description, period, achievements,
             <p className="text-white text-sm opacity-90 mb-3">
               {description}
             </p>
+            {image && (
+              <div className="mt-3 mb-3">
+                <img 
+                  src={image} 
+                  alt={title}
+                  className="rounded-lg w-full h-40 object-cover border-2 border-white border-opacity-30"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
             {achievements && achievements.length > 0 && (
               <div className="mt-3 pt-3 border-t border-white border-opacity-30">
                 <ul className="space-y-1">

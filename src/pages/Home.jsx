@@ -1,4 +1,5 @@
 ﻿import { FaArrowRight, FaGithub, FaLinkedin, FaGraduationCap, FaEnvelope, FaMapMarkerAlt, FaAward, FaDownload, FaUsers, FaHandsHelping, FaProjectDiagram, FaCode, FaChalkboardTeacher, FaTrophy, FaLightbulb, FaUserTie, FaHandshake, FaComments, FaChartLine, FaClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { profile } from '../data/profile';
 import { projects } from '../data/projects';
 import { skills } from '../data/skills';
@@ -322,6 +323,7 @@ function Home() {
                   description={item.description}
                   period={item.period}
                   achievements={item.achievements}
+                  image={item.image}
                   color={colors[index % colors.length]}
                   icon={item.icon}
                   offset={index * 40}
@@ -395,27 +397,46 @@ function Home() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {resume.certifications.map((cert) => (
             <ScrollAnimatedCard key={cert.id} animationType="scale" delay={0.1}>
-              <div className="card">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
-                    <FaAward className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-1 text-theme-primary">
-                      {cert.name}
-                    </h3>
-                    <p className="text-coral text-sm mb-1">{cert.issuer}</p>
-                    <p className="text-sm text-theme-secondary">
-                      Issued: {cert.date}
-                    </p>
-                    {cert.credentialId && (
-                      <p className="text-xs mt-2 text-theme-muted">
-                        ID: {cert.credentialId}
+              <Link to={`/certificate/${cert.id}`} className="block">
+                <div className="card hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+                  {cert.image && (
+                    <div className="mb-4 rounded-lg overflow-hidden">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.name}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
+                      <FaAward className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold mb-1 text-theme-primary group-hover:text-coral transition-colors">
+                        {cert.name}
+                      </h3>
+                      <p className="text-coral text-sm mb-1">{cert.issuer}</p>
+                      <p className="text-sm text-theme-secondary">
+                        Issued: {cert.date}
                       </p>
-                    )}
+                      {cert.description && (
+                        <p className="text-sm mt-2 text-theme-secondary line-clamp-2">
+                          {cert.description}
+                        </p>
+                      )}
+                      {cert.credentialId && (
+                        <p className="text-xs mt-2 text-theme-muted">
+                          ID: {cert.credentialId}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </ScrollAnimatedCard>
           ))}
         </div>

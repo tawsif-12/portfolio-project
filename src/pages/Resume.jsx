@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { resume } from '../data/resume';
 import SectionHeader from '../components/SectionHeader';
 import ScrollAnimatedCard from '../components/ScrollAnimatedCard';
@@ -154,27 +155,29 @@ function Resume() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {resume.certifications.map((cert, index) => (
             <ScrollAnimatedCard key={cert.id} animationType={index % 2 === 0 ? 'slide-left' : 'slide-right'} delay={index * 50}>
-              <div className="card hover:shadow-xl transition-all duration-500 hover:scale-105">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
-                    <FaAward className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-1 text-theme-primary">
-                      {cert.name}
-                    </h3>
-                    <p className="text-coral text-sm mb-1">{cert.issuer}</p>
-                    <p className="text-sm text-theme-secondary">
-                      Issued: {cert.date}
-                    </p>
-                    {cert.credentialId && (
-                      <p className="text-xs mt-2 text-theme-muted">
-                        ID: {cert.credentialId}
+              <Link to={`/certificate/${cert.id}`}>
+                <div className="card hover:shadow-xl transition-all duration-500 hover:scale-105 cursor-pointer group">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center">
+                      <FaAward className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold mb-1 text-theme-primary group-hover:text-coral transition-colors">
+                        {cert.name}
+                      </h3>
+                      <p className="text-coral text-sm mb-1">{cert.issuer}</p>
+                      <p className="text-sm text-theme-secondary">
+                        Issued: {cert.date}
                       </p>
-                    )}
+                      {cert.credentialId && (
+                        <p className="text-xs mt-2 text-theme-muted">
+                          ID: {cert.credentialId}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </ScrollAnimatedCard>
           ))}
         </div>
