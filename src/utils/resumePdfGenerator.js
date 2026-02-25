@@ -2,7 +2,6 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { resume } from '../data/resume';
 import { profile } from '../data/profile';
-import { leadership } from '../data/leadership';
 
 export const generateResumePDF = () => {
   const doc = new jsPDF();
@@ -125,35 +124,6 @@ export const generateResumePDF = () => {
         checkPageBreak();
         const respText = `• ${resp}`;
         const lines = doc.splitTextToSize(respText, pageWidth - 2 * margin - 5);
-        doc.text(lines, margin + 3, yPos);
-        yPos += lines.length * 5;
-      });
-    }
-    yPos += 5;
-  });
-
-  // === LEADERSHIP & ACTIVITIES SECTION ===
-  addSectionHeader('LEADERSHIP & ACTIVITIES');
-  leadership.forEach((item, index) => {
-    checkPageBreak();
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'bold');
-    doc.setTextColor(...darkColor);
-    doc.text(item.role, margin, yPos);
-    yPos += 5;
-
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...lightGray);
-    doc.text(`${item.organization} | ${item.period}`, margin, yPos);
-    yPos += 6;
-
-    doc.setTextColor(...darkColor);
-    if (item.achievements && item.achievements.length > 0) {
-      item.achievements.forEach(achievement => {
-        checkPageBreak();
-        const achievementText = `• ${achievement}`;
-        const lines = doc.splitTextToSize(achievementText, pageWidth - 2 * margin - 5);
         doc.text(lines, margin + 3, yPos);
         yPos += lines.length * 5;
       });
