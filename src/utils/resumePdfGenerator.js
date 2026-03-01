@@ -102,35 +102,6 @@ export const generateResumePDF = () => {
     yPos += 5;
   });
 
-  // === EXPERIENCE SECTION ===
-  addSectionHeader('PROFESSIONAL EXPERIENCE');
-  resume.experience.forEach((exp, index) => {
-    checkPageBreak();
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'bold');
-    doc.setTextColor(...darkColor);
-    doc.text(exp.title, margin, yPos);
-    yPos += 5;
-
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(...lightGray);
-    doc.text(`${exp.company} | ${exp.location} | ${exp.period}`, margin, yPos);
-    yPos += 6;
-
-    doc.setTextColor(...darkColor);
-    if (exp.responsibilities && exp.responsibilities.length > 0) {
-      exp.responsibilities.forEach(resp => {
-        checkPageBreak();
-        const respText = `• ${resp}`;
-        const lines = doc.splitTextToSize(respText, pageWidth - 2 * margin - 5);
-        doc.text(lines, margin + 3, yPos);
-        yPos += lines.length * 5;
-      });
-    }
-    yPos += 5;
-  });
-
   // === CERTIFICATIONS SECTION ===
   if (resume.certifications && resume.certifications.length > 0) {
     addSectionHeader('CERTIFICATIONS & ACHIEVEMENTS');

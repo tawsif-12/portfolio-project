@@ -3,7 +3,6 @@ import { resume } from '../data/resume';
 import SectionHeader from '../components/SectionHeader';
 import ScrollAnimatedCard from '../components/ScrollAnimatedCard';
 import {
-  FaBriefcase,
   FaGraduationCap,
   FaAward,
   FaDownload,
@@ -33,60 +32,6 @@ function Resume() {
               Download PDF Resume
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* Experience */}
-      <section className="section-container bg-theme-card" style={{ transition: 'background-color 0.3s ease' }}>
-        <SectionHeader
-          title="Professional Experience"
-          subtitle="My career journey and key accomplishments"
-        />
-        <div className="max-w-4xl mx-auto">
-          {resume.experience.map((exp, index) => (
-            <div
-              key={exp.id}
-              className="relative pl-4 sm:pl-8 pb-8 sm:pb-12 border-l-2 border-coral last:pb-0"
-            >
-              <div className="absolute left-0 top-0 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-coral" style={{ borderWidth: '3px', borderColor: 'var(--card-bg)', borderStyle: 'solid' }} />
-
-              <ScrollAnimatedCard animationType="slide-right" delay={index * 100}>
-                <div className="card hover:shadow-xl transition-all duration-500">
-                <div className="flex flex-col sm:flex-row items-start justify-between gap-2 mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-theme-primary">
-                      {exp.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-coral font-medium">
-                      {exp.company}
-                    </p>
-                    <p className="text-xs sm:text-sm text-theme-muted">
-                      {exp.location}
-                    </p>
-                  </div>
-                  <div className="text-left sm:text-right">
-                    <p className="flex items-center text-sm sm:text-base text-theme-secondary">
-                      <FaBriefcase className="mr-2" />
-                      {exp.period}
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="space-y-2">
-                  {exp.responsibilities.map((resp, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start text-sm sm:text-base text-theme-secondary"
-                    >
-                      <span className="text-coral mr-2 mt-1">▸</span>
-                      <span>{resp}</span>
-                    </li>
-                  ))}
-                </ul>
-                </div>
-              </ScrollAnimatedCard>
-            </div>
-          ))}
         </div>
       </section>
 

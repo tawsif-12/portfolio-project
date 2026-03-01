@@ -1,47 +1,5 @@
 export const resume = {
-  summary: "Computer Science undergraduate with strong expertise in AI/ML, Data Science, and Full Stack Development. Passionate about building data-driven solutions and leveraging cutting-edge technologies. Experienced in prompt engineering, data analytics, and modern web/mobile development with proven project delivery.",
-  
-  experience: [
-    {
-      id: 1,
-      title: "AI/ML Research Intern",
-      company: "Tech Research Lab",
-      location: "Remote",
-      period: "Jan 2024 - Present",
-      responsibilities: [
-        "Developing machine learning models for data classification and prediction tasks",
-        "Implementing prompt engineering techniques to optimize AI model outputs",
-        "Creating interactive data visualization dashboards using Power BI and Python",
-        "Processing and analyzing large datasets to extract actionable insights",
-      ],
-    },
-    {
-      id: 2,
-      title: "Full Stack Developer",
-      company: "Freelance",
-      location: "Remote",
-      period: "Mar 2023 - Dec 2023",
-      responsibilities: [
-        "Built responsive web applications using React, TypeScript, and Firebase",
-        "Developed cross-platform mobile applications with Flutter/Dart",
-        "Designed and implemented RESTful APIs using PHP and MySQL",
-        "Created data visualization solutions for client analytics requirements",
-      ],
-    },
-    {
-      id: 3,
-      title: "Web Development Intern",
-      company: "Software Studio",
-      location: "Bangladesh",
-      period: "Jun 2022 - Feb 2023",
-      responsibilities: [
-        "Developed responsive websites using JavaScript, PHP, and MySQL",
-        "Collaborated with design team to implement pixel-perfect interfaces",
-        "Maintained and optimized existing client websites for performance",
-        "Learned industry best practices and agile development methodologies",
-      ],
-    },
-  ],
+  summary: "Computer Science undergraduate with strong expertise in AI/ML, Data Science, and Full Stack Development. Passionate about building data-driven solutions and leveraging cutting-edge technologies. Skilled in prompt engineering, data analytics, and modern web/mobile development with proven project delivery.",
   
   education: [
     {
